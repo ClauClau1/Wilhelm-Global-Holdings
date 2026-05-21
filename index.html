@@ -35,6 +35,18 @@
     font-size: 18px;
     line-height: 1.7;
     overflow-x: hidden;
+    /* Prevent content from hiding under fixed nav */
+    scroll-padding-top: 72px;
+  }
+
+  /* Ensure all anchor targets clear the fixed nav */
+  section[id], div[id] {
+    scroll-margin-top: 72px;
+  }
+
+  @media (max-width: 900px) {
+    body { scroll-padding-top: 56px; }
+    section[id], div[id] { scroll-margin-top: 56px; }
   }
 
   /* ─── NOISE TEXTURE OVERLAY ─── */
@@ -76,7 +88,7 @@
   nav {
     position: fixed;
     top: 0; left: 0; right: 0;
-    z-index: 100;
+    z-index: 300;
     padding: 1.25rem 3rem;
     display: flex;
     align-items: center;
@@ -1617,7 +1629,7 @@
     body { font-size: 16px; }
 
     /* Hero */
-    .hero { padding: 5.5rem 1.25rem 2rem; min-height: 100svh; }
+    .hero { padding: 4.5rem 1.25rem 2rem; min-height: 100svh; }
     .hero-actions {
       flex-direction: column;
       align-items: center;
