@@ -132,13 +132,14 @@
   /* ─── HERO ─── */
   .hero {
     min-height: 100vh;
+    min-height: 100svh;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 8rem 2rem 4rem;
+    padding: 7rem 2rem 6rem;
     overflow: hidden;
   }
 
@@ -218,11 +219,13 @@
 
   .hero-actions {
     display: flex;
-    gap: 1.5rem;
+    gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
     opacity: 0;
     animation: fadeUp 1.2s 1.5s ease forwards;
+    padding-bottom: 5rem; /* clearance for absolute scroll-hint */
+    width: 100%;
   }
 
   .btn-primary {
@@ -233,11 +236,12 @@
     color: var(--ink);
     background: var(--gold);
     border: 1px solid var(--gold);
-    padding: 1rem 2.5rem;
+    padding: 0.85rem 2rem;
     cursor: pointer;
     text-decoration: none;
     transition: all 0.3s;
     display: inline-block;
+    white-space: nowrap;
   }
   .btn-primary:hover {
     background: var(--gold-light);
@@ -252,11 +256,12 @@
     color: var(--gold);
     background: transparent;
     border: 1px solid var(--border-strong);
-    padding: 1rem 2.5rem;
+    padding: 0.85rem 2rem;
     cursor: pointer;
     text-decoration: none;
     transition: all 0.3s;
     display: inline-block;
+    white-space: nowrap;
   }
   .btn-ghost:hover {
     border-color: var(--gold);
@@ -266,7 +271,7 @@
   /* Scroll indicator */
   .scroll-hint {
     position: absolute;
-    bottom: 2.5rem;
+    bottom: 1.5rem;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -275,6 +280,7 @@
     gap: 0.5rem;
     opacity: 0;
     animation: fadeUp 1.2s 2s ease forwards;
+    z-index: 2;
   }
 
   .scroll-hint span {
@@ -1591,9 +1597,22 @@
     body { font-size: 16px; }
 
     /* Hero */
-    .hero { padding: 6rem 1.25rem 3rem; min-height: 100svh; }
-    .hero-actions { flex-direction: column; align-items: center; gap: 1rem; }
-    .hero-actions .btn-primary, .hero-actions .btn-ghost { width: 100%; max-width: 320px; text-align: center; }
+    .hero { padding: 5.5rem 1.25rem 2rem; min-height: 100svh; }
+    .hero-actions {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      padding-bottom: 5rem;
+    }
+    .hero-actions .btn-primary,
+    .hero-actions .btn-ghost {
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+      padding: 0.85rem 1.5rem;
+      font-size: 10px;
+    }
+    .scroll-hint { bottom: 1rem; }
     .hero-eyebrow { font-size: 8px; letter-spacing: 0.3em; }
 
     /* Sections */
