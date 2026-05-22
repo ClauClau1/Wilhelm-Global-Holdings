@@ -2332,7 +2332,39 @@
   </div>
 </section>
 
-<!-- DISCORD ENQUIRY MODAL -->
+<!-- DISCORD WELCOME POPUP -->
+<div id="welcomePopup" style="display:none;position:fixed;inset:0;z-index:2000;background:rgba(10,8,6,0.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);align-items:center;justify-content:center;padding:1.5rem;">
+  <div style="background:#13100D;border:0.5px solid var(--border-strong);max-width:480px;width:100%;position:relative;overflow:hidden;">
+    <!-- Gold top bar -->
+    <div style="height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);"></div>
+
+    <div style="padding:2.5rem 2.5rem 2rem;">
+      <!-- Eyebrow -->
+      <p style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Wilhelm Global Holdings</p>
+
+      <!-- Heading -->
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:300;color:var(--ivory);line-height:1.15;margin-bottom:1rem;">Welcome Aboard the<br><em style="font-style:italic;color:var(--gold-light);">Prussian Star</em></h2>
+
+      <div style="height:0.5px;background:linear-gradient(90deg,transparent,var(--border-strong),transparent);margin-bottom:1.25rem;"></div>
+
+      <!-- Body -->
+      <p style="font-size:0.92rem;color:var(--ivory-dark);line-height:1.8;margin-bottom:0.75rem;">The Prussian Star is more than a train — it is a living world. Join our official Discord community to follow the journey, apply for a department, enquire about passage, and connect with fellow travellers.</p>
+      <p style="font-size:0.88rem;color:var(--muted);font-style:italic;line-height:1.7;margin-bottom:1.75rem;">All boarding enquiries, departmental applications, and investor class discussions are handled exclusively through the Discord server.</p>
+
+      <!-- CTA -->
+      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;">
+        <a href="https://discord.gg/m9tag3YE6q" target="_blank" onclick="dismissWelcome()" class="btn-primary" style="text-decoration:none;flex:1;text-align:center;min-width:160px;">Join Discord Server</a>
+        <button onclick="dismissWelcome()" style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);background:transparent;border:0.5px solid var(--border);padding:0.85rem 1.25rem;cursor:pointer;flex-shrink:0;transition:all 0.2s;" onmouseover="this.style.color='var(--ivory)';this.style.borderColor='var(--border-strong)'" onmouseout="this.style.color='var(--muted)';this.style.borderColor='var(--border)'">Continue</button>
+      </div>
+
+      <!-- Dismiss note -->
+      <p style="font-family:'Cinzel',serif;font-size:7px;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-top:1.25rem;opacity:0.7;">This message will not appear again on this device.</p>
+    </div>
+
+    <!-- Gold bottom bar -->
+    <div style="height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);"></div>
+  </div>
+</div>
 <div class="modal-backdrop" id="discordModal">
   <div class="modal" style="max-width:480px;">
     <div class="modal-header">
@@ -2371,7 +2403,7 @@
     </div>
     <div class="amenity reveal">
       <div class="amenity-icon">🍷</div>
-      <span class="amenity-name">Opulenz am Rhein Dining</span>
+      <span class="amenity-name">Opilenz am Rhein Dining</span>
       <p class="amenity-desc">Seven courses prepared by Monsieur Leclair, formerly of the Hôtel de Paris.</p>
     </div>
     <div class="amenity reveal">
@@ -2392,7 +2424,7 @@
     <div class="amenity reveal">
       <div class="amenity-icon">🎻</div>
       <span class="amenity-name">Evening Concerts</span>
-      <p class="amenity-desc">The Wilhelm String Quartet performs nightly in the First Class Sky Lounge — Brahms, Schubert, Ravel.</p>
+      <p class="amenity-desc">The Wilhelm String Quartet performs nightly in the First Class Salon — Brahms, Schubert, Ravel.</p>
     </div>
     <div class="amenity reveal">
       <div class="amenity-icon">✉</div>
@@ -2984,6 +3016,26 @@
 </div><!-- /overlay-pages -->
 
 <script>
+  // ─── WELCOME POPUP ───
+  (function() {
+    if (!localStorage.getItem('wgh_welcomed')) {
+      const popup = document.getElementById('welcomePopup');
+      popup.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+  })();
+
+  function dismissWelcome() {
+    localStorage.setItem('wgh_welcomed', '1');
+    const popup = document.getElementById('welcomePopup');
+    popup.style.opacity = '0';
+    popup.style.transition = 'opacity 0.4s ease';
+    setTimeout(() => {
+      popup.style.display = 'none';
+      document.body.style.overflow = '';
+    }, 400);
+  }
+
   // ─── SCROLL REVEAL ───
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
