@@ -1393,9 +1393,9 @@
   }
   .investor-card:hover { transform: translateY(-4px); }
 
-  .silver-card { background: linear-gradient(160deg, #161412 0%, #111010 100%); border-color: rgba(180,180,190,0.25); }
-  .gold-card   { background: linear-gradient(160deg, #1A1508 0%, #151208 100%); border-color: rgba(201,168,76,0.35); }
-  .platinum-card { background: linear-gradient(160deg, #131220 0%, #0E0D18 100%); border-color: rgba(180,170,220,0.3); }
+  .bronze-card { background: linear-gradient(160deg, #161412 0%, #111010 100%); border-color: rgba(180,180,190,0.25); }
+  .silver-card   { background: linear-gradient(160deg, #1A1508 0%, #151208 100%); border-color: rgba(201,168,76,0.35); }
+  .gold-card { background: linear-gradient(160deg, #131220 0%, #0E0D18 100%); border-color: rgba(180,170,220,0.3); }
 
   .inv-medal { font-size: 2rem; margin-bottom: 1rem; display: block; }
 
@@ -1408,9 +1408,9 @@
     display: inline-block;
     margin-bottom: 1rem;
   }
-  .silver-badge   { color: #B8B8C8; background: rgba(180,180,190,0.1); border: 0.5px solid rgba(180,180,190,0.3); }
-  .gold-badge     { color: var(--gold); background: rgba(201,168,76,0.1); border: 0.5px solid var(--border-strong); }
-  .platinum-badge { color: #C8C0E8; background: rgba(180,170,220,0.1); border: 0.5px solid rgba(180,170,220,0.3); }
+  .bronze-badge   { color: #B8B8C8; background: rgba(180,180,190,0.1); border: 0.5px solid rgba(180,180,190,0.3); }
+  .silver-badge     { color: var(--gold); background: rgba(201,168,76,0.1); border: 0.5px solid var(--border-strong); }
+  .gold-badge { color: #C8C0E8; background: rgba(180,170,220,0.1); border: 0.5px solid rgba(180,170,220,0.3); }
 
   .inv-name {
     font-family: 'Cormorant Garamond', serif;
@@ -1437,16 +1437,16 @@
     line-height: 1;
     margin-bottom: 1.25rem;
   }
-  .silver-card .inv-price   { color: #C8C8D8; }
-  .gold-card .inv-price     { color: var(--gold-light); }
-  .platinum-card .inv-price { color: #D0C8F0; }
+  .bronze-card .inv-price   { color: #C8C8D8; }
+  .bronze-card .inv-price     { color: var(--gold-light); }
+  .silver-card .inv-price { color: #D0C8F0; }
 
   .inv-currency { font-size: 1.1rem; margin-left: 0.15rem; }
 
   .inv-divider { width: 36px; height: 0.5px; margin-bottom: 1.25rem; }
-  .silver-div   { background: #B8B8C8; }
-  .gold-div     { background: var(--gold); }
-  .platinum-div { background: #C8C0E8; }
+  .bronze-div   { background: #B8B8C8; }
+  .silver-div     { background: var(--gold); }
+  .gold-div { background: #C8C0E8; }
 
   .inv-features {
     list-style: none;
@@ -1468,9 +1468,9 @@
     font-size: 0.75rem;
     margin-top: 0.15rem;
   }
-  .silver-card .inv-features li::before   { color: #B8B8C8; }
-  .gold-card .inv-features li::before     { color: var(--gold); }
-  .platinum-card .inv-features li::before { color: #C8C0E8; }
+  .bronze-card .inv-features li::before   { color: #B8B8C8; }
+  .bronze-card .inv-features li::before     { color: var(--gold); }
+  .silver-card .inv-features li::before { color: #C8C0E8; }
 
   .inv-btn {
     display: block;
@@ -1485,12 +1485,12 @@
     border: none;
     transition: all 0.3s;
   }
-  .silver-btn   { background: rgba(180,180,190,0.15); color: #C8C8D8; border: 0.5px solid rgba(180,180,190,0.35); }
-  .silver-btn:hover   { background: rgba(180,180,190,0.28); }
-  .gold-btn     { background: var(--gold); color: var(--ink); }
-  .gold-btn:hover     { background: var(--gold-light); }
-  .platinum-btn { background: rgba(180,170,220,0.15); color: #D0C8F0; border: 0.5px solid rgba(180,170,220,0.35); }
-  .platinum-btn:hover { background: rgba(180,170,220,0.28); }
+  .bronze-btn   { background: rgba(180,180,190,0.15); color: #C8C8D8; border: 0.5px solid rgba(180,180,190,0.35); }
+  .bronze-btn:hover   { background: rgba(180,180,190,0.28); }
+  .silver-btn     { background: var(--gold); color: var(--ink); }
+  .silver-btn:hover     { background: var(--gold-light); }
+  .gold-btn { background: rgba(180,170,220,0.15); color: #D0C8F0; border: 0.5px solid rgba(180,170,220,0.35); }
+  .gold-btn:hover { background: rgba(180,170,220,0.28); }
 
   /* Nav investor link color */
   .nav-investor { } /* inherits standard nav-link style */
@@ -1801,6 +1801,7 @@
     #pg-telegraph > div > div,
     #pg-admissions > div > div,
     #pg-press > div > div { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    .contact-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
     .route-stops { max-height: 300px; }
     .sector-title { font-size: 8px; }
     .carriage-row { grid-template-columns: 2.5rem 2rem 1fr; }
@@ -1957,6 +1958,14 @@
 
   @media (max-width: 680px) { .dept-grid { grid-template-columns: 1fr; } }
   #overlay-pages { font-family: 'EB Garamond', Georgia, serif; }
+  /* Contact page two-column grid */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
   .overlay-page { display: none; }
   .overlay-page.active { display: block; }
 
@@ -2354,32 +2363,32 @@
 
   <div class="investor-grid">
     <!-- Silver -->
-    <div class="investor-card silver-card reveal">
-      <div class="inv-medal">🥉</div>
-      <span class="inv-badge silver-badge">Silver Class</span>
-      <h3 class="inv-name">Silver</h3>
+    <div class="investor-card bronze-card reveal">
+      <div class="inv-medal">🥇</div>
+      <span class="inv-badge bronze-badge">Bronze Class</span>
+      <h3 class="inv-name">Bronze</h3>
       <p class="inv-units">6–9 Units · Single Custom Suite</p>
       <div class="inv-price">5,000 <span class="inv-currency">R</span></div>
-      <div class="inv-divider silver-div"></div>
+      <div class="inv-divider bronze-div"></div>
       <ul class="inv-features">
         <li>Single custom 1st Class quarters (1 unit)</li>
         <li>Access to all 1st Class amenities</li>
         <li>Priority 1st Class updates &amp; dispatches</li>
         <li>Access to exclusive investor carriages &amp; premium communal areas</li>
         <li>Premium beverages and caviar selection</li>
-        <li>Limited eligibility to upgrade to Gold Class</li>
+        <li>Limited eligibility to upgrade to Silver Class</li>
       </ul>
-      <button class="inv-btn silver-btn" onclick="openDiscordModal('Silver')">Enquire on Discord</button>
+      <button class="inv-btn bronze-btn" onclick="openDiscordModal('Bronze')">Enquire on Discord</button>
     </div>
 
-    <!-- Gold -->
-    <div class="investor-card gold-card reveal">
+    <!-- Silver -->
+    <div class="investor-card silver-card reveal">
       <div class="inv-medal">🥈</div>
-      <span class="inv-badge gold-badge">Gold Class</span>
-      <h3 class="inv-name">Gold</h3>
+      <span class="inv-badge silver-badge">Silver Class</span>
+      <h3 class="inv-name">Silver</h3>
       <p class="inv-units">4–6 Units · Family Custom Suite</p>
       <div class="inv-price">7,000 <span class="inv-currency">R</span></div>
-      <div class="inv-divider gold-div"></div>
+      <div class="inv-divider silver-div"></div>
       <ul class="inv-features">
         <li>Family custom 1st Class suite (1.5 units)</li>
         <li>Family extension — up to 3 members without Investor Class (1st Class required)</li>
@@ -2390,19 +2399,19 @@
         <li>Security escort by brakemen (1)</li>
         <li>Access to investor carriages &amp; premium communal areas</li>
         <li>Premium beverages and caviar selection</li>
-        <li>Limited eligibility to upgrade to Platinum Class</li>
+        <li>Limited eligibility to upgrade to Gold Class</li>
       </ul>
-      <button class="inv-btn gold-btn" onclick="openDiscordModal('Gold')">Enquire on Discord</button>
+      <button class="inv-btn silver-btn" onclick="openDiscordModal('Silver')">Enquire on Discord</button>
     </div>
 
-    <!-- Platinum -->
-    <div class="investor-card platinum-card reveal">
+    <!-- Gold -->
+    <div class="investor-card gold-card reveal">
       <div class="inv-medal">🥇</div>
-      <span class="inv-badge platinum-badge">Platinum Class</span>
-      <h3 class="inv-name">Platinum</h3>
+      <span class="inv-badge gold-badge">Gold Class</span>
+      <h3 class="inv-name">Gold</h3>
       <p class="inv-units">2–3 Units · Personal Carriage</p>
       <div class="inv-price">10,000 <span class="inv-currency">R</span></div>
-      <div class="inv-divider platinum-div"></div>
+      <div class="inv-divider gold-div"></div>
       <ul class="inv-features">
         <li>Personal carriage — custom 1st Class suite (3 units)</li>
         <li>Family extension — up to 5 members without Investor Class (1st Class required)</li>
@@ -2414,7 +2423,7 @@
         <li>Full access to investor carriages &amp; premium communal areas</li>
         <li>Premium beverages and caviar selection</li>
       </ul>
-      <button class="inv-btn platinum-btn" onclick="openDiscordModal('Platinum')">Enquire on Discord</button>
+      <button class="inv-btn gold-btn" onclick="openDiscordModal('Gold')">Enquire on Discord</button>
     </div>
   </div>
 </section>
@@ -2484,20 +2493,20 @@
     <div class="modal-header">
       <div>
         <p style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;">Investor Class Enquiry</p>
-        <h2 class="modal-title" id="discord-modal-title">Silver <em>Class</em></h2>
+        <h2 class="modal-title" id="discord-modal-title">Bronze <em>Class</em></h2>
       </div>
       <button class="modal-close" onclick="closeDiscordModal()">✕</button>
     </div>
-    <div class="modal-body" style="text-align:center;padding:3rem;">
-      <div style="font-size:3rem;margin-bottom:1.5rem;" id="discord-medal">🥉</div>
-      <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--ivory-dark);line-height:1.7;margin-bottom:2rem;">Investor Class passages are allocated through private negotiation. To enquire about availability, pricing, and onboarding, please join our exclusive Discord server and speak with a Wilhelm Holdings representative.</p>
-      <div style="border:0.5px solid var(--border);padding:1.5rem;margin-bottom:2rem;background:rgba(255,255,255,0.02);">
-        <p style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:0.5rem;">Official Discord Server</p>
-        <p style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--ivory);">Wilhelm Global Holdings</p>
-        <p style="font-size:0.85rem;color:var(--muted);font-style:italic;margin-top:0.25rem;">discord.gg/m9tag3YE6q</p>
+    <div class="modal-body" style="text-align:center;padding:2.5rem 2rem;">
+      <div style="font-size:3rem;margin-bottom:1rem;" id="discord-medal">🥉</div>
+      <p id="discord-tier-desc" style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--ivory-dark);line-height:1.7;margin-bottom:1.75rem;"></p>
+      <div style="border:0.5px solid var(--border);padding:1.25rem 1.5rem;margin-bottom:1.75rem;background:rgba(255,255,255,0.02);text-align:left;">
+        <p style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:0.4rem;">Investor Server</p>
+        <p id="discord-server-name" style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--ivory);margin-bottom:0.2rem;"></p>
+        <p id="discord-server-url" style="font-size:0.82rem;color:var(--muted);font-style:italic;"></p>
       </div>
-      <a href="https://discord.gg/m9tag3YE6q" target="_blank" class="btn-primary" style="display:inline-block;text-decoration:none;">Join Discord Server</a>
-      <p style="font-size:0.78rem;color:var(--muted);font-style:italic;margin-top:1.5rem;">Mention your preferred class (<span id="discord-class-hint">Silver</span>) when contacting a representative.</p>
+      <a id="discord-join-btn" href="#" target="_blank" class="btn-primary" style="display:inline-block;text-decoration:none;margin-bottom:1.25rem;">Join Investor Server</a>
+      <p style="font-size:0.78rem;color:var(--muted);font-style:italic;">After joining, mention you are enquiring for <span id="discord-class-hint">Bronze</span> Class and a representative will assist you.</p>
     </div>
   </div>
 </div>
@@ -2606,7 +2615,7 @@
       <a href="https://www.roblox.com/share/g/35167161" target="_blank" class="btn-ghost" style="border-color:rgba(120,100,70,0.5);color:#9E876A;text-decoration:none;">3<sup>rd</sup> Class — Free (Roblox)</a>
       <button class="btn-ghost" style="border-color: #8B4040; color: #B87070;" onclick="openReservation('second')">2<sup>nd</sup> Class — 600 R</button>
       <button class="btn-primary" onclick="openReservation('first')">1<sup>st</sup> Class — 2,000 R</button>
-      <button class="btn-ghost" style="border-color:rgba(180,170,220,0.5);color:#C8C0E8;" onclick="openDiscordModal('Silver')">Investor Classes ✦</button>
+      <button class="btn-ghost" style="border-color:rgba(180,170,220,0.5);color:#C8C0E8;" onclick="openDiscordConfirm()">Investor Classes ✦</button>
     </div>
     <p class="booking-note" style="margin-top: 2rem;">All tickets are a final sale · One-way passage only · No return boarding exists · Boarding at all mainline waypoints</p>
   </div>
@@ -3019,7 +3028,7 @@
     <div id="pg-telegraph" class="overlay-page">
       <span style="display:block;font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;">Passenger Communications</span>
       <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:300;color:var(--ivory);line-height:1.1;margin-bottom:3rem;">The Telegraph <em style="font-style:italic;color:var(--gold-light);">Office</em></h1>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+      <div class="contact-grid">
         <div>
           <p style="color:var(--ivory-dark);line-height:1.9;margin-bottom:1.5rem;">The Telegraph Office serves as the primary point of contact for passenger queries, complaints, hospitality requests, and welfare communications. All messages dispatched through this office are handled by the Head of Hospitality and Passenger Relations aboard the Prussian Star.</p>
           <p style="color:var(--ivory-dark);line-height:1.9;margin-bottom:1.5rem;">For enquiries regarding your passage, cabin assignment, dietary requirements, medical access, or any matter pertaining to your experience aboard the train, please direct your correspondence to the Head of Hospitality.</p>
@@ -3044,7 +3053,7 @@
     <div id="pg-admissions" class="overlay-page">
       <span style="display:block;font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;">Passenger Admissions</span>
       <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:300;color:var(--ivory);line-height:1.1;margin-bottom:3rem;">The Admissions <em style="font-style:italic;color:var(--gold-light);">Office</em></h1>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+      <div class="contact-grid">
         <div>
           <p style="color:var(--ivory-dark);line-height:1.9;margin-bottom:1.5rem;">The Admissions Office is responsible for the review, approval, and processing of all passage applications submitted to Wilhelm Global Holdings. Every passenger aboard the Prussian Star has passed through this office, regardless of class or investor status.</p>
           <p style="color:var(--ivory-dark);line-height:1.9;margin-bottom:1.5rem;">All reservations are subject to review. The Head Administrator retains full discretion over boarding eligibility and may decline any application without obligation to provide cause. Decisions are final and not subject to appeal through civilian channels.</p>
@@ -3078,7 +3087,7 @@
     <div id="pg-press" class="overlay-page">
       <span style="display:block;font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;">Media Relations</span>
       <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:300;color:var(--ivory);line-height:1.1;margin-bottom:3rem;">Press <em style="font-style:italic;color:var(--gold-light);">Enquiries</em></h1>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;">
+      <div class="contact-grid">
         <div>
           <p style="color:var(--ivory-dark);line-height:1.9;margin-bottom:1.5rem;">Wilhelm Global Holdings welcomes media engagement from accredited press organisations, documentary crews, and independent journalists. All press access to the Prussian Star is managed through our official Discord server and requires advance clearance from the Administration Office.</p>
           <p style="color:var(--ivory-dark);line-height:1.9;margin-bottom:1.5rem;">Press credentials do not exempt holders from the Conditions of Carriage. Media personnel aboard are subject to the same class restrictions as civilian passengers unless a specific access arrangement has been confirmed in writing by the Head Administrator.</p>
@@ -3780,7 +3789,7 @@
           <circle cx="${cx}" cy="${cy}" r="14" fill="transparent" class="map-hit"/>
           <circle cx="${cx}" cy="${cy}" r="9" fill="none" stroke="${lineColor}" stroke-width="1" opacity="0" class="map-ring"/>
           <circle cx="${cx}" cy="${cy}" r="4.5" fill="${lineColor}" stroke="#0E0C09" stroke-width="1.2" class="map-dot"/>
-          <text x="${lx.toFixed(1)}" y="${(+cy+1.5).toFixed(1)}" font-family="'Cinzel',serif" font-size="5" fill="${lineColor}" text-anchor="${anchor}" opacity="0.92" paint-order="stroke" stroke="#0E0C09" stroke-width="2.5" class="map-label">${city}</text>
+          <text x="${lx.toFixed(1)}" y="${(+cy+1.5).toFixed(1)}" font-family="'Cinzel',serif" font-size="7" fill="${lineColor}" text-anchor="${anchor}" opacity="0.92" paint-order="stroke" stroke="#0E0C09" stroke-width="3" class="map-label">${city}</text>
         </g>`;
       } else {
         dots += `
@@ -3788,7 +3797,7 @@
           <circle cx="${cx}" cy="${cy}" r="10" fill="transparent" class="map-hit"/>
           <circle cx="${cx}" cy="${cy}" r="5.5" fill="none" stroke="#9E876A" stroke-width="0.8" opacity="0" class="map-ring"/>
           <circle cx="${cx}" cy="${cy}" r="2.2" fill="#9E876A" stroke="#0E0C09" stroke-width="0.6" opacity="0.85" class="map-dot"/>
-          <text x="${lx.toFixed(1)}" y="${(+cy-4).toFixed(1)}" font-family="'Cinzel',serif" font-size="4.5" fill="#B8966A" text-anchor="${anchor}" opacity="0" paint-order="stroke" stroke="#0E0C09" stroke-width="2" class="map-label">${city}</text>
+          <text x="${lx.toFixed(1)}" y="${(+cy-5).toFixed(1)}" font-family="'Cinzel',serif" font-size="5.5" fill="#B8966A" text-anchor="${anchor}" opacity="0" paint-order="stroke" stroke="#0E0C09" stroke-width="2.5" class="map-label">${city}</text>
         </g>`;
       }
     });
@@ -3818,9 +3827,9 @@
           #${mapId} .map-stop-minor .map-ring { transition: all 0.2s ease; }
           #${mapId} .map-stop-major:hover .map-dot { r:7; }
           #${mapId} .map-stop-major:hover .map-ring { opacity:0.55; r:11; }
-          #${mapId} .map-stop-major:hover .map-label { font-size:6.5px; opacity:1; }
+          #${mapId} .map-stop-major:hover .map-label { font-size:9px; opacity:1; }
           #${mapId} .map-stop-minor:hover .map-dot { r:4; fill:#B8966A; opacity:1; }
-          #${mapId} .map-stop-minor:hover .map-label { opacity:1; }
+          #${mapId} .map-stop-minor:hover .map-label { opacity:1; font-size:7px; }
           #${mapId} .map-stop-minor .map-label { transition: all 0.18s ease; }
           #${mapId} .map-stop-minor:hover .map-ring { opacity:0.45; }
         </style>
@@ -3872,46 +3881,204 @@
     </svg>
 
     <!-- Floating tooltip (near cursor) -->
-    <div id="tip_${mapId}" style="display:none;position:absolute;pointer-events:none;background:rgba(10,8,4,0.96);border:0.5px solid rgba(201,168,76,0.55);padding:0.45rem 0.9rem;z-index:10;white-space:nowrap;">
-      <span id="tip_${mapId}_city" style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.28em;text-transform:uppercase;color:#C9A84C;display:block;"></span>
-      <span id="tip_${mapId}_country" style="font-family:'EB Garamond',serif;font-size:12px;font-style:italic;color:#7A6E5E;"></span>
+    <!-- Rich city popup -->
+    <div id="cpop_${mapId}" style="display:none;position:absolute;pointer-events:none;background:rgba(10,8,4,0.97);border:0.5px solid rgba(201,168,76,0.5);z-index:20;min-width:200px;max-width:260px;">
+      <div style="border-bottom:0.5px solid rgba(201,168,76,0.2);padding:0.65rem 1rem;">
+        <span id="cpop_${mapId}_city" style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:#C9A84C;display:block;"></span>
+        <span id="cpop_${mapId}_country" style="font-family:'EB Garamond',serif;font-size:11px;font-style:italic;color:#7A6E5E;"></span>
+      </div>
+      <div style="padding:0.65rem 1rem;">
+        <div id="cpop_${mapId}_type" style="font-family:'Cinzel',serif;font-size:7px;letter-spacing:0.3em;text-transform:uppercase;margin-bottom:0.5rem;"></div>
+        <div id="cpop_${mapId}_info" style="font-family:'EB Garamond',serif;font-size:12px;color:#C8BCA8;line-height:1.55;"></div>
+      </div>
     </div>
 
     <script>
     (function(){
+      var CITY_INFO = {
+        // ── MAINLINE ────────────────────────────────────────────────────────
+        'Berlin':           { type:'Major Junction · HQ', class:'gold', info:'Capital of Germany and global headquarters of Wilhelm Global Holdings. Starting and end point of the full circuit. Home of Berlin Terminus and the Admissions Office.' },
+        'Frankfurt':        { type:'Station · Mainline', class:'muted', info:'Major German financial and rail hub. Connects the Rhine-Main corridor to the western European network. Large boarding population from the banking and industrial sector.' },
+        'Paris':            { type:'Station · Mainline', class:'muted', info:'Capital of the French State. One of the most heavily-boarded stops in Western Europe. Political and cultural heart of the continent.' },
+        'Toulouse':         { type:'Station · Mainline', class:'muted', info:'Industrial city of southern France. Gateway to the Pyrenees and the Iberian approach. Serves the Occitan and southwestern French interior.' },
+        'Barcelona':        { type:'Station · Mainline', class:'muted', info:'Principal port of the Iberian Union on the Mediterranean. High passenger turnover serving the eastern Iberian corridor and Catalan coast.' },
+        'Valencia':         { type:'Station · Mainline', class:'muted', info:'Third largest city of the Iberian Union. Agricultural and commercial hub on the Spanish Mediterranean coast. Stop before the Malagan descent.' },
+        'Malaga':           { type:'Station · Mainline', class:'muted', info:'Southernmost major city of continental Europe. Coastal Andalusian port at the entrance to the Strait of Gibraltar. Boarding stop before the African crossing.' },
+        'Gibraltar':        { type:'Station · Mainline', class:'muted', info:'German-administered territory controlling the mouth of the Mediterranean. Critical strategic waypoint marking the crossing from Europe into Africa.' },
+        'Casablanca':       { type:'Station · Mainline', class:'muted', info:'Largest city of Iberian Morocco. The primary commercial and industrial Atlantic port of North Africa. Entry point to the African continent.' },
+        'Dakar':            { type:'Station · Mainline', class:'muted', info:'Capital of Senegal. Westernmost city of continental Africa. Significant port and waypoint before the long equatorial West African coastal run.' },
+        'Monrovia':         { type:'Station · Mainline', class:'muted', info:'Capital of Liberia. West African port with historical ties to the Americas. Serves the Grain Coast communities and regional interior.' },
+        'Abidjan':          { type:'Station · Mainline', class:'muted', info:'Economic capital of Côte d'Ivoire. The dominant commercial port of French West Africa. One of the largest cities between Dakar and Lagos.' },
+        'Lagos':            { type:'Station · Mainline', class:'muted', info:'Largest city of RK Westafrika. A sprawling Atlantic port with immense commercial activity. Serves the densely populated Niger Delta region.' },
+        'Luanda':           { type:'Station · Mainline', class:'muted', info:'Capital of Iberian Angola. Major oil and port city on the Atlantic coast of central Africa. Key resupply stop on the southbound African leg.' },
+        'Windhoek':         { type:'Station · Mainline', class:'muted', info:'Administrative capital of RK Südwestafrika. Inland plateau city serving the southern African interior before the Cape approach.' },
+        'Cape Town':        { type:'Major Stop · Mainline', class:'gold', info:'Southernmost major city of Africa. Gateway between the Atlantic and Indian Ocean legs. One of the most strategically important stops on the entire circuit.' },
+        'Durban':           { type:'Station · Mainline', class:'muted', info:'Largest port on the eastern coast of South Africa. Serves the Natal industrial heartland. Heavy cargo and passenger boarding.' },
+        'Dar es Salaam':    { type:'Station · Mainline', class:'muted', info:'Principal port of RK Ostafrika. One of the busiest harbours on the East African coast. Key stop for the Great Lakes interior population.' },
+        'Mombasa':          { type:'Station · Mainline', class:'muted', info:'Ancient port of Italian East Africa. One of the oldest trading posts on the African coast. Serves the Kenyan hinterland.' },
+        'Mogadishu':        { type:'Station · Mainline', class:'muted', info:'Capital of Italian East Africa's Somali region. Hot coastal city at the Horn of Africa. Last stop before the Gulf of Aden approach.' },
+        'Djibouti':         { type:'Station · Mainline', class:'muted', info:'Small but vital port at the mouth of the Red Sea. Controls access to Bab-el-Mandeb. A critical fuelling and transfer waypoint.' },
+        'Port Sudan':       { type:'Station · Mainline', class:'muted', info:'Principal Red Sea port of the Kingdom of Egypt. Main outlet for Sudanese trade. Key boarding stop on the Red Sea corridor.' },
+        'Cairo':            { type:'Major Junction · Mainline', class:'gold', info:'Capital of the Kingdom of Egypt. One of the largest cities in the world. Critical junction between the African and Near Eastern segments.' },
+        'Jerusalem':        { type:'Station · Mainline', class:'muted', info:'Holy city of the Transjordan State. One of the most historically significant stops on the circuit. Serves the Levantine interior.' },
+        'Beirut':           { type:'Station · Mainline', class:'muted', info:'Capital of the Transjordan State and commercial heart of the Levant. Cosmopolitan Mediterranean port with diverse passenger boarding.' },
+        'Ankara':           { type:'Station · Mainline', class:'muted', info:'Capital of the Republic of Turkey. Inland Anatolian city connecting western and eastern halves of the Turkish territory.' },
+        'Istanbul':         { type:'Major Junction · Mainline & Secondary', class:'gold', info:'Straddles two continents at the Bosphorus. The great junction of East and West. Passengers may transfer between the Mainline and Secondary Mainline here.' },
+        'Bucharest':        { type:'Station · Mainline', class:'muted', info:'Capital of Romania. Balkan crossroads city. Stop before the long run across the Black Sea littoral toward Ukraine and the Caucasus.' },
+        'Odessa':           { type:'Station · Mainline & Secondary', class:'muted', info:'Major Black Sea port of RK Ukraine. Historically the most important southern port of the Russian Empire. Heavy passenger and grain traffic.' },
+        'Sevastopol':       { type:'Station · Mainline', class:'muted', info:'Strategic naval city on the Crimean peninsula. Military and port significance make this a carefully managed boarding stop.' },
+        'Krasnodar':        { type:'Station · Mainline', class:'muted', info:'Agricultural capital of RK Kaukasien. Gateway to the Northern Caucasus. Large regional population across fertile steppe land.' },
+        'Baku':             { type:'Station · Mainline', class:'muted', info:'Capital of RK Kaukasien. Heart of Caspian oil production. Industrial city at the crossroads of the Caucasus and Central Asia.' },
+        'Tabriz':           { type:'Station · Mainline & Secondary', class:'muted', info:'Ancient city of northwestern Persia. Major commercial hub on the historic Silk Road. Gateway to the Iranian plateau from the Caucasus.' },
+        'Tehran':           { type:'Station · Mainline & Secondary', class:'muted', info:'Capital of Persia. Rapidly modernising city at the foot of the Alborz mountains. Political and economic centre of the Persian state.' },
+        'Ashgabat':         { type:'Station · Mainline & Secondary', class:'muted', info:'Capital of Turkmenistan. Desert city at the edge of the Karakum. Important waypoint on the trans-Central Asian corridor toward Afghanistan.' },
+        'Kabul':            { type:'Station · Mainline & Secondary', class:'muted', info:'Capital of Afghanistan. Mountain city at a strategic crossroads. One of the more technically demanding stops on the route due to terrain.' },
+        'New Delhi':        { type:'Major Junction · Mainline', class:'gold', info:'Capital of India. Massive boarding hub serving the entire subcontinent. Junction between the Central Asian and Southeast Asian legs.' },
+        'Lucknow':          { type:'Station · Secondary', class:'blue', info:'Major city of the Gangetic Plain. Cultural and administrative centre of the United Provinces. Serves the dense Indian interior population.' },
+        'Dhaka':            { type:'Station · Mainline & Secondary', class:'muted', info:'Capital of eastern India's Bengal region. Sits in the Ganges-Brahmaputra delta. Densely populated boarding stop before the Burmese approach.' },
+        'Rangoon':          { type:'Station · Mainline & Secondary', class:'muted', info:'Capital of Burma. Principal port on the Irrawaddy delta. Gateway from the Indian subcontinent into Indochina.' },
+        'Kuala Lumpur':     { type:'Station · Secondary', class:'blue', info:'Capital of Japanese Malaya. Rapidly developing city in the heart of the Malay peninsula. Major tin and rubber export hub.' },
+        'Singapore':        { type:'Major Junction · Secondary', class:'blue', info:'Strategic island city at the tip of the Malay peninsula under Japanese Malaya. Critical junction connecting Southeast Asia to Australia and East Asia.' },
+        'Bangkok':          { type:'Station · Mainline & Secondary', class:'muted', info:'Capital of Thailand. River city at the heart of mainland Southeast Asia. Serves a large regional population and major trade hub.' },
+        'Saigon':           { type:'Station · Mainline & Secondary', class:'muted', info:'Southern capital of Vietnam. French-influenced port city on the Mekong Delta. Commercial heart of French Indochina's successor state.' },
+        'Hanoi':            { type:'Station · Mainline & Secondary', class:'muted', info:'Capital of Vietnam. Northern city with a longer history than Saigon. Administrative hub serving the densely populated Red River Delta.' },
+        'Hong Kong':        { type:'Station · Mainline & Secondary', class:'muted', info:'Port territory of Japanese Guangdong. One of the busiest natural harbours in Asia. Global trading entrepôt and major boarding hub.' },
+        'Fuzhou':           { type:'Station · Secondary', class:'blue', info:'Coastal city of the Republic of China on the Fujian coast. Historic port on the Strait of Taiwan. Maritime gateway to southeastern China.' },
+        'Nanjing':          { type:'Station · Mainline & Secondary', class:'muted', info:'Historic former capital of the Republic of China on the Yangtze River. Serves the lower Yangtze basin population.' },
+        'Qingdao':          { type:'Station · Mainline', class:'muted', info:'German-legacy port city on the Yellow Sea. Known for its European architecture. Major industrial and naval port of northern China.' },
+        'Beijing':          { type:'Major Junction · Mainline', class:'gold', info:'Capital of the Republic of China. One of the great historic cities of the world. Junction for onward movement to Korea and Japan.' },
+        'Dalian':           { type:'Station · Secondary', class:'blue', info:'Japanese-administered port on the Liaodong Peninsula. Ice-free deep harbour serving Manchurian trade routes. Stop on the Korean approach.' },
+        'Seoul':            { type:'Station · Mainline & Secondary', class:'muted', info:'Capital of Japanese Korea. Major industrial and administrative city. Boarding hub for the Korean peninsula before the island segment.' },
+        'Busan':            { type:'Station · Mainline & Secondary', class:'muted', info:'Principal port of Japanese Korea. Southern terminus of the Korean peninsula. Main departure point for the crossing to Japan.' },
+        'Fukuoka':          { type:'Station · Mainline & Secondary', class:'muted', info:'Northernmost major city of Kyushu. First stop on the Japanese islands. The historic gateway between Japan and the Asian continent.' },
+        'Okayama':          { type:'Station · Secondary', class:'blue', info:'City on the Sanyo coast connecting Kyushu to Honshu. Agricultural and industrial centre of western Japan on the inland sea corridor.' },
+        'Osaka':            { type:'Station · Mainline & Secondary', class:'muted', info:'Second city of Japan and its commercial heart. Massive port and manufacturing centre. High-volume boarding before the Tokyo approach.' },
+        'Tokyo':            { type:'Major Stop · Mainline', class:'gold', info:'Capital of the State of Japan. Highest-volume boarding station in East Asia. Last stop before the Sapporo run and Pacific crossing.' },
+        'Sapporo':          { type:'Station · Mainline & Secondary', class:'muted', info:'Capital of Hokkaido, Japan's northern island. Cold-weather city. Last stop before the long Pacific crossing to Kamchatka.' },
+        'Petropavlovsk-Kamchatsky': { type:'Station · Mainline & Secondary', class:'muted', info:'Remote city on the Kamchatka Peninsula, U.S. Pacific Fleet territory. The critical crossing point from Asia to North America.' },
+        'Anchorage':        { type:'Station · Mainline & Secondary', class:'muted', info:'Main city of Alaska, USA. First North American stop after the Pacific crossing. Gateway to the American continent from the north.' },
+        'Vancouver':        { type:'Station · Mainline & Secondary', class:'muted', info:'Largest city of western Canada. Pacific port at the foot of the Coast Mountains. Major boarding stop for Canadian passengers.' },
+        'Portland':         { type:'Station · Mainline & Secondary', class:'muted', info:'Port city of the Pacific northwest USA. Trade hub at the confluence of the Columbia and Willamette rivers. Stop before California.' },
+        'San Francisco':    { type:'Major Stop · Mainline & Secondary', class:'gold', info:'One of the great port cities of the western USA. Major boarding hub on both the Mainline and Secondary. Gateway to California and the American west.' },
+        'Las Vegas':        { type:'Station · Secondary', class:'blue', info:'Desert city of the American southwest. Major population centre in the Nevada basin. Interior American corridor stop on the Secondary Mainline.' },
+        'Los Angeles':      { type:'Major Stop · Mainline', class:'gold', info:'Largest city on the Pacific coast of the USA. Primary boarding hub for Southern California. Entry point to the American continental leg.' },
+        'Mexico City':      { type:'Major Junction · Mainline & Secondary', class:'gold', info:'Capital of Mexico and most populous city in the Americas. Junction connecting the North and South American segments of both routes.' },
+        'San Salvador':     { type:'Station · Mainline', class:'muted', info:'Capital of El Salvador. Densely populated Central American city. Stop on the isthmus corridor between North and South America.' },
+        'Panama City':      { type:'Station · Mainline & Secondary', class:'muted', info:'Capital of Panama. Guards the entrance to the Canal. Strategic transit city connecting the two American continents.' },
+        'Quito':            { type:'Station · Mainline & Secondary', class:'muted', info:'Capital of Ecuador, high in the Andes. One of the highest capital cities in the world. Gateway to the Andean corridor southward.' },
+        'Lima':             { type:'Station · Mainline & Secondary', class:'muted', info:'Capital of Peru. Pacific coastal city and the largest on western South America. Major boarding stop for the Andean population.' },
+        'La Paz':           { type:'Station · Mainline & Secondary', class:'muted', info:'Seat of government of Bolivia. High-altitude Andean city. Serves the Bolivian altiplano and surrounding highland communities.' },
+        'Santa Cruz de la Sierra': { type:'Station · Mainline & Secondary', class:'muted', info:'Largest city of Bolivia and its economic capital. Lowland eastern Bolivian plains. Gateway between the Andes and the Atlantic basin.' },
+        'Asunción':         { type:'Station · Secondary', class:'blue', info:'Capital of Paraguay. Inland river city on the Paraguay River. One of the oldest cities in South America. Serves the landlocked Paraguayan interior.' },
+        'Buenos Aires':     { type:'Major Stop · Secondary', class:'blue', info:'Capital of Argentina. Cultural and economic heart of the southern cone. One of the great cities of the southern hemisphere. Major boarding hub.' },
+        'Montevideo':       { type:'Station · Secondary', class:'blue', info:'Capital of Uruguay. Prosperous river-mouth city. Serves the Uruguayan population before the Brazilian Atlantic coastal approach.' },
+        'São Paulo':        { type:'Major Stop · Mainline & Secondary', class:'gold', info:'Largest city in South America. Economic capital of Brazil. Massive boarding hub before the Atlantic coastal northward run.' },
+        'Rio de Janeiro':   { type:'Station · Mainline & Secondary', class:'muted', info:'Former capital of Brazil and its most iconic city. Atlantic port at the foot of the Serra do Mar. High passenger boarding volume.' },
+        'Natal':            { type:'Station · Mainline & Secondary', class:'muted', info:'Easternmost city of the Americas. Key waypoint marking the turn northward along the Atlantic coast toward the Caribbean.' },
+        'Caracas':          { type:'Station · Mainline & Secondary', class:'muted', info:'Capital of Venezuela. Caribbean-facing city rich in oil. Boarding stop for the northern South American population.' },
+        'Medellín':         { type:'Station · Mainline & Secondary', class:'muted', info:'Second city of Colombia. Industrial mountain city. Serves the Antioqueño highlands on the northward run from South America.' },
+        'Medellin':         { type:'Station · Mainline', class:'muted', info:'Second city of Colombia. Industrial mountain city. Serves the Antioqueño highlands on the northward run from South America.' },
+        'Houston':          { type:'Station · Secondary', class:'blue', info:'Largest city of Texas. Major Gulf Coast port and oil industry centre. Stop on the Secondary Mainline's American interior corridor.' },
+        'Jacksonville':     { type:'Station · Secondary', class:'blue', info:'Major Atlantic coast city of northern Florida. Naval and logistics hub serving the American southeastern seaboard.' },
+        'Dallas':           { type:'Station · Mainline', class:'muted', info:'Major city of Texas and the southern USA interior. Commercial hub serving the vast American south-central region.' },
+        'Atlanta':          { type:'Station · Mainline', class:'muted', info:'Transportation hub of the American southeast. Gateway connecting the deep south to the eastern seaboard. Major boarding stop.' },
+        'Washington D.C.':  { type:'Major Stop · Mainline & Secondary', class:'gold', info:'Capital of the United States of America. One of the final North American stops before the transatlantic northward turn toward Canada.' },
+        'New York':         { type:'Station · Secondary', class:'blue', info:'Largest city of the USA. The great Atlantic port and commercial capital of the Americas. Major boarding hub on the Secondary Mainline.' },
+        'Montreal':         { type:'Station · Mainline & Secondary', class:'muted', info:'Largest city of French Canada. Cultural and commercial centre on the St. Lawrence. Last major city before the far northern Arctic run.' },
+        'Nuuk':             { type:'Station · Mainline', class:'muted', info:'Capital of Greenland, administered by the USA. Small Arctic city. Northernmost stop of the entire circuit before the European return.' },
+        'Murmansk':         { type:'Station · Mainline', class:'muted', info:'Arctic port city of Finland. Ice-free year-round due to the Gulf Stream. Last stop before the Baltic approach and return to Germany.' },
+        'Helsinki':         { type:'Station · Secondary', class:'blue', info:'Capital of Finland. Baltic Sea port. Stop on the Secondary Mainline before the Estonian approach on the final Baltic leg.' },
+        'Tallinn':          { type:'Station · Secondary', class:'blue', info:'Capital of RK Ostland's Estonian district. Medieval Baltic port city. Stop on the Secondary Mainline's return through the Baltic states.' },
+        'Sankt Petersburg': { type:'Station · Mainline', class:'muted', info:'Former imperial capital of RK Moskowien. Magnificent Baltic city on the Neva delta. Cultural and industrial heart of northwestern Russia.' },
+        'Riga':             { type:'Station · Mainline & Secondary', class:'muted', info:'Capital of RK Ostland. Major Baltic port. The largest city of the occupied Baltic states. Important commercial centre.' },
+        'Kaunas':           { type:'Station · Mainline & Secondary', class:'muted', info:'Second city of Lithuania within RK Ostland. Commercial and academic hub on the Nemunas River. Stop before the Prussian approach.' },
+        'Königsberg':       { type:'Station · Mainline', class:'muted', info:'Capital of East Prussia. Historic German Baltic port. Named on the route banner. One of the last waypoints before Berlin.' },
+        'Danzig':           { type:'Station · Mainline', class:'muted', info:'German port city on the Baltic coast. Major port serving Prussia and the Polish hinterland. Penultimate stop before Berlin.' },
+        'Białystok':        { type:'Station · Secondary', class:'blue', info:'Eastern German city near the former Polish border. Administrative centre of the incorporated eastern territories.' },
+        'Warschau':         { type:'Station · Secondary', class:'blue', info:'Former capital of Poland, now administered as Germany's Generalgouvernement. Major city on the central European plain.' },
+        'Breslau':          { type:'Station · Secondary', class:'blue', info:'Major German city of Silesia on the Oder River. Industrial and cultural centre. Final stop before the return to Berlin.' },
+        // ── SECONDARY WESTERN EUROPE ─────────────────────────────────────
+        'Hannover':         { type:'Station · Secondary', class:'blue', info:'Major German city and rail hub. First stop south of Berlin on the Secondary Mainline. Connects the capital to the Ruhr industrial region.' },
+        'Düsseldorf':       { type:'Station · Secondary', class:'blue', info:'Industrial heart of the Rhineland. Capital of a densely populated German region. Gateway to Belgium and the Low Countries.' },
+        'Brüxelles':        { type:'Station · Secondary', class:'blue', info:'Capital of Burgundy. Cosmopolitan city at the crossroads of French and Flemish culture. Important European administrative hub.' },
+        'London':           { type:'Major Stop · Secondary', class:'blue', info:'Capital of the United Kingdom of Britain. One of the world's great cities. Major boarding hub after the Channel approach.' },
+        'Bournemouth':      { type:'Station · Secondary', class:'blue', info:'English Channel coastal city. Stop on the Secondary Mainline's British leg before the French crossing via Cherbourg.' },
+        'Cherbourg':        { type:'Station · Secondary', class:'blue', info:'Major French Atlantic port on the Normandy coast. Gateway between Britain and France. Historic naval base and passenger terminal.' },
+        'Nantes':           { type:'Station · Secondary', class:'blue', info:'Atlantic port of western France on the Loire estuary. Stop on the French coastal descent toward the Pyrenees.' },
+        'Bordeaux':         { type:'Station · Secondary', class:'blue', info:'Wine capital of France and major Atlantic port. Gateway to the Aquitaine region and the Pyrenean approach to Iberia.' },
+        'Bilbao':           { type:'Station · Secondary', class:'blue', info:'Major Basque port city of the Iberian Union. Industrial heartland of northern Spain. First Iberian stop on the Secondary Mainline.' },
+        'Madrid':           { type:'Major Stop · Secondary', class:'blue', info:'Capital of the Iberian Union. Political and cultural heart of Spain. Major boarding hub on the Secondary Mainline's Iberian leg.' },
+        'Tetuan':           { type:'Station · Secondary', class:'blue', info:'City of Iberian Morocco near the Strait. Administrative centre of Spanish Morocco. First North African stop on the Secondary Mainline.' },
+        'Oran':             { type:'Station · Secondary', class:'blue', info:'Major Algerian port city. Second city of French Algeria. Mediterranean port serving the western Algerian population.' },
+        'Algiers':          { type:'Major Stop · Secondary', class:'blue', info:'Capital of French Algeria. Dominant city of North Africa's French zone. Key junction on the Secondary Mediterranean corridor.' },
+        'Tunis':            { type:'Station · Secondary', class:'blue', info:'Capital of Italian Libya's Tunisian district. Ancient Mediterranean city. Gateway to the Libyan coast from the west.' },
+        'Tripoli':          { type:'Station · Secondary', class:'blue', info:'Capital of Italian Libya. Major North African coastal city. Stop on the eastward Mediterranean run toward Egypt.' },
+        'Benghazi':         { type:'Station · Secondary', class:'blue', info:'Second city of Italian Libya. Eastern Libyan port near the Egyptian border. Stop before the Alexandria approach.' },
+        'Alexandria':       { type:'Major Stop · Secondary', class:'blue', info:'Egypt's great Mediterranean port. Ancient city at the mouth of the Nile Delta. Where the Secondary Mainline meets the Egyptian segment.' },
+        'Antalya':          { type:'Station · Secondary', class:'blue', info:'Turkish Riviera city on the Mediterranean coast. Tourism and trade hub of southern Anatolia. Stop on the Turkish coastal approach.' },
+        'Izmir':            { type:'Station · Secondary', class:'blue', info:'Third city of the Republic of Turkey. Major Aegean port. Historical gateway between Europe and Asia Minor.' },
+        'Varna':            { type:'Station · Secondary', class:'blue', info:'Principal Bulgarian Black Sea port. Gateway to the Bulgarian interior. Stop on the coastal approach to Bucharest.' },
+        'Rostov-on-Don':    { type:'Station · Secondary', class:'blue', info:'Major city of RK Ukraine at the mouth of the Don River. Gateway to the Caucasus. Heavy industrial and agricultural transit.' },
+        'Tbilisi':          { type:'Station · Secondary', class:'blue', info:'Capital of RK Kaukasien's Georgian district. Ancient Caucasian city on the Kura River. Cultural crossroads of Europe and Asia.' },
+        'Dili':             { type:'Station · Secondary', class:'blue', info:'Capital of Iberian Timor. Small colonial port at the eastern end of the Lesser Sunda Islands. Stop before the Australian approach.' },
+        'Darwin':           { type:'Station · Secondary', class:'blue', info:'Northern gateway city of Australia. Tropical port facing Indonesia. First Australian stop on the Secondary Mainline.' },
+        'Perth':            { type:'Station · Secondary', class:'blue', info:'Capital of Western Australia. Remote but prosperous city on the Indian Ocean coast. Stop on the westward Australian leg.' },
+        'Adelaide':         { type:'Station · Secondary', class:'blue', info:'Capital of South Australia. Known as the city of churches. Stop on the southern Australian coastal run between Perth and Melbourne.' },
+        'Melbourne':        { type:'Station · Secondary', class:'blue', info:'Second city of Australia. Cultural capital of the continent. Major boarding hub on the southeastern Australian coast.' },
+        'Sydney':           { type:'Major Stop · Secondary', class:'blue', info:'Largest city in Australia. Major Pacific gateway. The centrepiece of the Australian loop on the Secondary Mainline.' },
+        'Brisbane':         { type:'Station · Secondary', class:'blue', info:'Capital of Queensland. Subtropical coastal city. Final stop on the Australian leg before the northward return through Southeast Asia.' },
+        'Bandar':           { type:'Station · Secondary', class:'blue', info:'Capital of Brunei. Small but wealthy sultanate on the northern coast of Borneo. Stop on the return leg through island Southeast Asia.' },
+      };
+
+      var DEFAULT_INFO = {
+        info: 'A scheduled stop on the Prussian Star's circuit. Passengers may board or disembark at this waypoint during the allotted window.',
+        type: 'Station', class: 'muted'
+      };
+
+      var TYPE_COLOURS = { gold: '#C9A84C', blue: '#9090C8', muted: '#7A6E5E' };
+
       var svg = document.getElementById('${mapId}');
-      var tip = document.getElementById('tip_${mapId}');
-      var tipCity = document.getElementById('tip_${mapId}_city');
-      var tipCountry = document.getElementById('tip_${mapId}_country');
+      var pop = document.getElementById('cpop_${mapId}');
+      var popCity = document.getElementById('cpop_${mapId}_city');
+      var popCountry = document.getElementById('cpop_${mapId}_country');
+      var popType = document.getElementById('cpop_${mapId}_type');
+      var popInfo = document.getElementById('cpop_${mapId}_info');
       var overlay = document.getElementById('cityOverlay_${mapId}');
       var cityName = document.getElementById('cityName_${mapId}');
       var cityCountry = document.getElementById('cityCountry_${mapId}');
-      var container = tip.parentElement;
+      var container = pop.parentElement;
       var fadeTimer;
 
       svg.querySelectorAll('.map-stop-major, .map-stop-minor').forEach(function(g){
         g.addEventListener('mouseenter', function(e){
           clearTimeout(fadeTimer);
-          // Tooltip
-          tipCity.textContent = g.dataset.city;
-          tipCountry.textContent = g.dataset.country || '';
-          tip.style.display = 'block';
-          // City name overlay
-          cityName.textContent = g.dataset.city;
-          cityCountry.textContent = g.dataset.country || '';
+          var city = g.dataset.city || '';
+          var country = g.dataset.country || '';
+          var d = CITY_INFO[city] || DEFAULT_INFO;
+          popCity.textContent = city;
+          popCountry.textContent = country;
+          popType.textContent = d.type;
+          popType.style.color = TYPE_COLOURS[d.class] || '#7A6E5E';
+          popInfo.textContent = d.info;
+          pop.style.display = 'block';
+          cityName.textContent = city;
+          cityCountry.textContent = country;
           overlay.style.opacity = '1';
         });
         g.addEventListener('mousemove', function(e){
           var rect = container.getBoundingClientRect();
-          var tx = e.clientX - rect.left + 16;
-          var ty = e.clientY - rect.top - 44;
-          if (tx + 180 > rect.width) tx = e.clientX - rect.left - 196;
-          if (ty < 0) ty = e.clientY - rect.top + 16;
-          tip.style.left = tx + 'px';
-          tip.style.top = ty + 'px';
+          var pw = pop.offsetWidth + 16;
+          var ph = pop.offsetHeight + 16;
+          var tx = e.clientX - rect.left + 18;
+          var ty2 = e.clientY - rect.top - ph / 2;
+          if (tx + pw > rect.width) tx = e.clientX - rect.left - pw;
+          if (ty2 < 0) ty2 = 4;
+          if (ty2 + ph > rect.height) ty2 = rect.height - ph - 4;
+          pop.style.left = tx + 'px';
+          pop.style.top = ty2 + 'px';
         });
         g.addEventListener('mouseleave', function(){
-          tip.style.display = 'none';
+          pop.style.display = 'none';
           fadeTimer = setTimeout(function(){ overlay.style.opacity = '0'; }, 120);
         });
       });
@@ -4143,10 +4310,40 @@
   });
 
   // ─── DISCORD MODAL ───
-  const discordMedals = { Silver: '🥉', Gold: '🥈', Platinum: '🥇' };
+  const discordMedals = { Bronze: '🥉', Silver: '🥈', Gold: '🥇' };
+
+  const discordTierData = {
+    Bronze: {
+      medal: '🥉',
+      desc: 'The Bronze Class grants a single custom 1st Class quarter with full access to investor carriages and premium amenities. Entry-level investor status, with limited eligibility to upgrade to Silver Class.',
+      server: 'Wilhelm Global Holdings — Main Server',
+      url: 'discord.gg/m9tag3YE6q',
+      link: 'https://discord.gg/m9tag3YE6q',
+    },
+    Silver: {
+      medal: '🥈',
+      desc: 'The Silver Class provides a family custom 1st Class suite, personal concierge services, priority booking, and a brakeman security escort. Includes eligibility to upgrade to Gold Class.',
+      server: 'Wilhelm Global Holdings — Main Server',
+      url: 'discord.gg/m9tag3YE6q',
+      link: 'https://discord.gg/m9tag3YE6q',
+    },
+    Gold: {
+      medal: '🥇',
+      desc: 'The Gold Class is the pinnacle of investor privilege — a personal carriage, full concierge, maximum priority booking, and a security detail of up to 3 brakemen. Family extension up to 5 members.',
+      server: 'Wilhelm Global Holdings — Main Server',
+      url: 'discord.gg/m9tag3YE6q',
+      link: 'https://discord.gg/m9tag3YE6q',
+    },
+  };
+
   function openDiscordModal(tier) {
+    const data = discordTierData[tier] || discordTierData['Bronze'];
     document.getElementById('discord-modal-title').innerHTML = tier + ' <em>Class</em>';
-    document.getElementById('discord-medal').textContent = discordMedals[tier] || '✦';
+    document.getElementById('discord-medal').textContent = data.medal;
+    document.getElementById('discord-tier-desc').textContent = data.desc;
+    document.getElementById('discord-server-name').textContent = data.server;
+    document.getElementById('discord-server-url').textContent = data.url;
+    document.getElementById('discord-join-btn').href = data.link;
     document.getElementById('discord-class-hint').textContent = tier;
     document.getElementById('discordModal').classList.add('open');
     document.body.style.overflow = 'hidden';
