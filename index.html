@@ -1765,6 +1765,7 @@
     #pg-press > div > div { grid-template-columns: 1fr !important; }
     .carriage-row { grid-template-columns: 2.5rem 2rem 1fr; }
     #route-content > div { grid-template-columns: 1fr !important; }
+    #route-content div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
     #rights-grid { grid-template-columns: 1fr !important; }
     #pg-history > div[style*="grid"] { grid-template-columns: 1fr 1fr !important; }
   }
@@ -2147,7 +2148,7 @@
     <span class="route-sep">✦</span>
     <span>Königsberg</span>
   </div>
-  <p class="route-label">The Eternal Circuit — 35 Mainline Cities — Perpetual Passage</p>
+  <p class="route-label">The Eternal Circuit — 81 Mainline Cities — Perpetual Passage</p>
 </div>
 
 <!-- INTRO -->
@@ -2157,7 +2158,7 @@
       <span class="section-label">The Prussian Star</span>
       <h2 class="section-heading">The last <em>civilised</em> address in the world</h2>
       <div class="section-body">
-        <p>In the spring of 1972, on the twentieth anniversary of the company's founding, Wilhelm Global Holdings launched what would become the most ambitious passenger rail operation in human history. The Prussian Star — eighty-two carriages of steel, mahogany, and purpose — departed Berlin on her first full global circuit, carrying over two thousand passengers across thirty-five cities on six continents.</p>
+        <p>In the spring of 1972, on the twentieth anniversary of the company's founding, Wilhelm Global Holdings launched what would become the most ambitious passenger rail operation in human history. The Prussian Star — eighty-two carriages of steel, mahogany, and purpose — departed Berlin on her first full global circuit, carrying over two thousand passengers across eighty-one cities on six continents.</p>
         <p>She does not stop. She does not slow. Built in the late 1950s and comprehensively refitted in 1969, she has run without pause since that March departure — through blizzard and desert, across frozen steppe and equatorial plain. Aboard her, the finest traditions of European hospitality continue uninterrupted, three hundred and sixty-five days a year.</p>
         <p>Three classes. Three worlds. One eternal train.</p>
       </div>
@@ -2814,13 +2815,13 @@
         <div>
           <span style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1rem;">The Departure</span>
           <p style="color:var(--ivory-dark);line-height:1.9;margin-bottom:1.5rem;">On the fourteenth of March, 1972 — the twentieth anniversary of the company's founding — the Prussian Star departed Berlin on her first full global circuit. The platform at Berlin Central was crowded to capacity. Von Vorbeck watched from the observation car as the city receded.</p>
-          <p style="color:var(--ivory-dark);line-height:1.9;">She has not stopped since. The train completes her great circuit across thirty-five mainline cities, boarding passengers and taking on cargo at each waypoint before continuing without pause. The management of Wilhelm Global Holdings operates from Carriage Four and maintains full authority over all matters aboard.</p>
+          <p style="color:var(--ivory-dark);line-height:1.9;">She has not stopped since. The train completes her great circuit across eighty-one mainline cities, boarding passengers and taking on cargo at each waypoint before continuing without pause. The management of Wilhelm Global Holdings operates from Carriage Four and maintains full authority over all matters aboard.</p>
         </div>
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:4rem;">
         <div style="background:rgba(201,168,76,0.06);border:0.5px solid var(--border);padding:2rem;text-align:center;">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--gold);">35</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--gold);">81</div>
           <div style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.3em;text-transform:uppercase;color:var(--muted);margin-top:0.25rem;">Mainline Cities</div>
         </div>
         <div style="background:rgba(201,168,76,0.06);border:0.5px solid var(--border);padding:2rem;text-align:center;">
@@ -3419,7 +3420,28 @@
     ['Benghazi','Italian Libya'],['Alexandria','Kingdom of Egypt','junction'],['Jerusalem','Transjordan State'],
     ['Beirut','Transjordan State'],['Antalya','Republic of Turkey'],['Izmir','Republic of Turkey'],
     ['Istanbul','Republic of Turkey','junction'],['Varna','Bulgaria'],['Bucharest','Romania','junction'],
-    ['Odessa','RK Ukraine','end'],
+    ['Odessa','RK Ukraine'],['Rostov-on-Don','RK Ukraine'],['Tbilisi','RK Kaukasien'],['Baku','RK Kaukasien'],
+    ['Tabriz','Persia'],['Tehran','Persia'],['Ashgabat','Turkmenistan'],['Kabul','Afghanistan'],
+    ['New Delhi','India','junction'],['Lucknow','India'],['Dhaka','India'],['Rangoon','Burma'],
+    ['Kuala Lumpur','Japanese Malaya'],['Singapore','Japanese Malaya','junction'],['Dili','Iberian Timor'],
+    ['Darwin','Australia'],['Perth','Australia'],['Adelaide','Australia'],['Melbourne','Australia'],
+    ['Sydney','Australia','junction'],['Brisbane','Australia'],['Bandar','Brunei'],
+    ['Singapore','Japanese Malaya'],['Bangkok','Thailand'],['Saigon','Vietnam'],['Hanoi','Vietnam'],
+    ['Hong Kong','Republic of China'],['Fuzhou','Republic of China'],['Nanjing','Republic of China'],
+    ['Beijing','Republic of China','junction'],['Dalian','State of Japan'],['Seoul','Japanese Korea'],
+    ['Busan','Japanese Korea'],['Fukuoka','State of Japan'],['Okayama','State of Japan'],
+    ['Osaka','State of Japan'],['Tokyo','State of Japan','junction'],['Sapporo','State of Japan'],
+    ['Petropavlovsk-Kamchatsky','U.S. Pacific Fleet'],['Anchorage','USA'],['Vancouver','Canada'],
+    ['Portland','USA'],['San Francisco','USA','junction'],['Las Vegas','USA'],['Mexico City','Mexico','junction'],
+    ['San Salvador','El Salvador'],['Panama City','Panama'],['Quito','Ecuador'],['Lima','Peru'],
+    ['La Paz','Bolivia'],['Santa Cruz de la Sierra','Bolivia'],['Asunción','Paraguay'],
+    ['Buenos Aires','Argentina','junction'],['Montevideo','Uruguay'],['São Paulo','Brazil'],
+    ['Rio de Janeiro','Brazil'],['Natal','Brazil'],['Caracas','Venezuela'],['Medellín','Colombia'],
+    ['Panama City','Panama'],['Mexico City','Mexico'],['Houston','USA'],['Jacksonville','USA'],
+    ['Washington D.C.','USA','junction'],['New York','USA'],['Montreal','Canada'],['Nuuk','USA'],
+    ['Murmansk','Finland'],['Helsinki','Finland'],['Tallinn','RK Ostland'],['Riga','RK Ostland'],
+    ['Kaunas','RK Ostland'],['Białystok','Germany'],['Warschau','Germany'],['Breslau','Germany'],
+    ['Berlin','Germany','end'],
   ];
 
   function buildRoute() {
@@ -3448,12 +3470,14 @@
           ${renderLine(MAINLINE, 'Prussian Star — Mainline', `${MAINLINE.length} stops · Complete global circuit · Approx. 14 months`)}
         </div>
         <div>
-          ${renderLine(SECONDARY, 'Prussian Star — Secondary Mainline', `${SECONDARY.length} stops · Western Europe & Mediterranean loop`)}
-          <div style="margin-top:2rem;padding:1.5rem;border:0.5px solid var(--border);background:rgba(255,255,255,0.01);">
-            <span style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:0.75rem;">Route Notes</span>
-            <p style="font-size:0.85rem;color:var(--ivory-dark);line-height:1.8;margin-bottom:1rem;">Gold markers denote junction stops where the Mainline and Secondary Mainline share track. At these shared waypoints, passengers may elect to transfer onto the Secondary Mainline. The Secondary route serves as an official contingency corridor — should any segment of the Mainline suffer damage, obstruction, or structural compromise, the Prussian Star will divert onto the Secondary Mainline at the nearest available junction and continue its circuit uninterrupted until the Mainline is restored.</p>
-            <p style="font-size:0.85rem;color:var(--ivory-dark);line-height:1.8;margin-bottom:1rem;">The Prussian Star makes a single stop at each designated station. Each waypoint has been selected on the basis of its regional significance — representing the foremost population centre or strategic node within its territory — in order to serve the greatest number of prospective passengers and cargo consignors within the shortest operational window. No secondary or supplementary stops are made within the same region.</p>
-          </div>
+          ${renderLine(SECONDARY, 'Prussian Star — Secondary Mainline', `${SECONDARY.length} stops · Extended global circuit`)}
+        </div>
+      </div>
+      <div style="margin-top:2rem;padding:2rem 2.5rem;border:0.5px solid var(--border);background:rgba(255,255,255,0.01);width:100%;">
+        <span style="font-family:'Cinzel',serif;font-size:8px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1rem;">Route Notes</span>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;">
+          <p style="font-size:0.88rem;color:var(--ivory-dark);line-height:1.85;">Gold markers denote junction stops where the Mainline and Secondary Mainline share track. At these shared waypoints, passengers may elect to transfer onto the Secondary Mainline. The Secondary route serves as an official contingency corridor — should any segment of the Mainline suffer damage, obstruction, or structural compromise, the Prussian Star will divert onto the Secondary Mainline at the nearest available junction and continue its circuit uninterrupted until the Mainline is restored.</p>
+          <p style="font-size:0.88rem;color:var(--ivory-dark);line-height:1.85;">The Prussian Star makes a single stop at each designated station. Each waypoint has been selected on the basis of its regional significance — representing the foremost population centre or strategic node within its territory — in order to serve the greatest number of prospective passengers and cargo consignors within the shortest operational window. No secondary or supplementary stops are made within the same region.</p>
         </div>
       </div>
     `;
