@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-6S53D6ZKQ1"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-6S53D6ZKQ1');
 </script>
-
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6S53D6ZKQ1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6S53D6ZKQ1');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wilhelm Global Holdings — The Prussian Star</title>
@@ -25,7 +30,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Wilhelm Global Holdings — The Prussian Star">
 <meta property="og:description" content="Board the Prussian Star — the world's only perpetual passenger locomotive. 81 mainline cities. 82 carriages. One eternal journey. Reserve your passage.">
-<meta property="og:url" content="https://clauclau1.github.io/Wilhelm-Global-Holdings">
+<meta property="og:url" content="https://clauclau1.github.io/Wilhelm-Global-Holdings/">
 <meta property="og:site_name" content="Wilhelm Global Holdings">
 <meta property="og:image" content="https://clauclau1.github.io/Wilhelm-Global-Holdings/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -72,18 +77,6 @@
     font-size: 18px;
     line-height: 1.7;
     overflow-x: hidden;
-    /* Prevent content from hiding under fixed nav */
-    scroll-padding-top: 72px;
-  }
-
-  /* Ensure all anchor targets clear the fixed nav */
-  section[id], div[id] {
-    scroll-margin-top: 72px;
-  }
-
-  @media (max-width: 900px) {
-    body { scroll-padding-top: 56px; }
-    section[id], div[id] { scroll-margin-top: 56px; }
   }
 
   /* ─── NOISE TEXTURE OVERLAY ─── */
@@ -124,7 +117,9 @@
   /* ─── NAV ─── */
   nav {
     position: fixed;
-    top: 0; left: 0; right: 0;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 300;
     padding: 0 2rem;
     height: 56px;
@@ -136,6 +131,12 @@
     border-bottom: 0.5px solid var(--border);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
+    transform: translateY(0);
+    transition: transform 0.35s ease;
+  }
+
+  nav.nav-hidden {
+    transform: translateY(-100%);
   }
 
   .nav-logo {
@@ -197,7 +198,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 7rem 2rem 6rem;
+    padding: 5rem 2rem 6rem;
     overflow: hidden;
   }
 
@@ -1685,7 +1686,7 @@
     body { font-size: 16px; }
 
     /* Hero */
-    .hero { padding: 4.5rem 1.25rem 2rem; min-height: 100svh; }
+    .hero { padding: 4rem 1.25rem 2rem; min-height: 100svh; }
     .hero-actions {
       flex-direction: column;
       align-items: center;
@@ -3124,6 +3125,32 @@
       document.body.style.overflow = '';
     }, 400);
   }
+
+  // ─── NAV HIDE/SHOW ON SCROLL ───
+  const navEl = document.querySelector('nav');
+  let lastScrollY = 0;
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const currentY = window.scrollY;
+        if (currentY <= 10) {
+          // At the very top — always show
+          navEl.classList.remove('nav-hidden');
+        } else if (currentY > lastScrollY + 4) {
+          // Scrolling down — hide
+          navEl.classList.add('nav-hidden');
+        } else if (currentY < lastScrollY - 4) {
+          // Scrolling up — show
+          navEl.classList.remove('nav-hidden');
+        }
+        lastScrollY = currentY;
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
 
   // ─── SCROLL REVEAL ───
   const reveals = document.querySelectorAll('.reveal');
