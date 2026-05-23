@@ -1966,6 +1966,83 @@
     align-items: start;
   }
 
+  #class-1st, #class-2nd, #class-3rd {
+    scroll-margin-top: calc(56px + env(safe-area-inset-top) + 12px);
+  }
+  .tariff-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .tariff-card {
+    border: 0.5px solid var(--border);
+    overflow: hidden;
+  }
+
+  .tariff-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.1rem;
+    background: rgba(201,168,76,0.05);
+    border-bottom: 0.5px solid var(--border);
+    gap: 0.5rem;
+  }
+
+  .tariff-class {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ivory);
+  }
+
+  .tariff-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    white-space: nowrap;
+  }
+
+  .tariff-card-body { padding: 0; }
+
+  .tariff-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 0.6rem 1.1rem;
+    border-bottom: 0.5px solid rgba(255,255,255,0.04);
+    font-size: 0.82rem;
+  }
+  .tariff-row:last-child { border-bottom: none; }
+
+  .tariff-row > span:first-child {
+    font-family: 'Cinzel', serif;
+    font-size: 7px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding-top: 0.1rem;
+  }
+
+  .tariff-row > span:last-child {
+    color: var(--ivory-dark);
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  /* Mobile: stack tariff cards and collapse contact grid */
+  @media (max-width: 768px) {
+    .contact-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    .tariff-cards { grid-template-columns: 1fr; }
+    .tariff-card-header { flex-direction: row; }
+    .tariff-row > span:last-child { text-align: left; }
+  }
+
   .overlay-page { display: none; }
   .overlay-page.active { display: block; }
 
@@ -2277,7 +2354,7 @@
 
   <div class="classes-grid">
     <!-- Third Class -->
-    <div class="class-card class-steerage reveal">
+    <div id="class-3rd" class="class-card class-steerage reveal">
       <div class="class-card-inner">
         <span class="class-badge steerage-badge">Third Class</span>
         <h3 class="class-name">3<sup>rd</sup> Class</h3>
@@ -2301,7 +2378,7 @@
     </div>
 
     <!-- Second Class -->
-    <div class="class-card class-second reveal">
+    <div id="class-2nd" class="class-card class-second reveal">
       <div class="class-card-inner">
         <span class="class-badge second-badge">Second Class</span>
         <h3 class="class-name">2<sup>nd</sup> Class</h3>
@@ -2325,7 +2402,7 @@
     </div>
 
     <!-- First Class -->
-    <div class="class-card class-first reveal">
+    <div id="class-1st" class="class-card class-first reveal">
       <div class="class-card-inner">
         <span class="class-badge first-badge">First Class</span>
         <h3 class="class-name">1<sup>st</sup> Class</h3>
@@ -2892,11 +2969,11 @@
     <div>
       <span class="footer-col-title">Passage</span>
       <ul class="footer-links">
-        <li><a href="#classes">1<sup>st</sup> Class</a></li>
-        <li><a href="#classes">2<sup>nd</sup> Class</a></li>
-        <li><a href="#classes">3<sup>rd</sup> Class</a></li>
+        <li><a href="#class-1st">1<sup>st</sup> Class</a></li>
+        <li><a href="#class-2nd">2<sup>nd</sup> Class</a></li>
+        <li><a href="#class-3rd">3<sup>rd</sup> Class</a></li>
         <li><a href="#investor">Investor Classes</a></li>
-        <li><a href="#" onclick="openPage('conditions')">Terms &amp; Tariffs</a></li>
+        <li><a href="#" onclick="openPage('tariffs')">Terms &amp; Tariffs</a></li>
       </ul>
     </div>
     <div>
@@ -3112,6 +3189,99 @@
       <div style="max-width:720px;">
         <p style="color:var(--muted);font-style:italic;margin-bottom:2rem;">As published by Wilhelm Global Holdings, Berlin, Germany. Effective from 14 March 1972.</p>
         <div id="conditions-list"></div>
+      </div>
+    </div>
+
+    <!-- ── PAGE: TERMS & TARIFFS ── -->
+    <div id="pg-tariffs" class="overlay-page">
+      <span style="display:block;font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;">Pricing &amp; Terms</span>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,4rem);font-weight:300;color:var(--ivory);line-height:1.1;margin-bottom:2rem;">Terms &amp; <em style="font-style:italic;color:var(--gold-light);">Tariffs</em></h1>
+      <p style="color:var(--muted);font-style:italic;margin-bottom:3rem;font-size:0.92rem;line-height:1.7;">Passage tariffs as published by Wilhelm Global Holdings, Berlin. All prices in Roblox (R). All tickets are a final sale — non-refundable, non-transferable, and non-exchangeable.</p>
+
+      <!-- Passenger Class Tariffs -->
+      <div style="margin-bottom:2.5rem;">
+        <span style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1.25rem;">Passenger Class Tariffs</span>
+        <div class="tariff-cards">
+          <div class="tariff-card">
+            <div class="tariff-card-header">
+              <span class="tariff-class" style="color:#C8A87A;">3<sup>rd</sup> Class</span>
+              <span class="tariff-price" style="color:#C8A87A;">Free</span>
+            </div>
+            <div class="tariff-card-body">
+              <div class="tariff-row"><span>Type</span><span>One-way · Final Sale</span></div>
+              <div class="tariff-row"><span>Conditions</span><span>Active Roblox community membership required</span></div>
+              <div class="tariff-row"><span>Purchase</span><span>Join via Roblox group</span></div>
+            </div>
+          </div>
+          <div class="tariff-card">
+            <div class="tariff-card-header">
+              <span class="tariff-class" style="color:#D4907A;">2<sup>nd</sup> Class</span>
+              <span class="tariff-price" style="color:#D4907A;">600 R</span>
+            </div>
+            <div class="tariff-card-body">
+              <div class="tariff-row"><span>Type</span><span>One-way · Final Sale</span></div>
+              <div class="tariff-row"><span>Conditions</span><span>No refund · Non-transferable</span></div>
+              <div class="tariff-row"><span>Purchase</span><span>Via official Roblox catalog listing</span></div>
+            </div>
+          </div>
+          <div class="tariff-card">
+            <div class="tariff-card-header">
+              <span class="tariff-class" style="color:var(--gold-light);">1<sup>st</sup> Class</span>
+              <span class="tariff-price" style="color:var(--gold-light);">2,000 R</span>
+            </div>
+            <div class="tariff-card-body">
+              <div class="tariff-row"><span>Type</span><span>One-way · Final Sale</span></div>
+              <div class="tariff-row"><span>Conditions</span><span>No refund · Non-transferable</span></div>
+              <div class="tariff-row"><span>Purchase</span><span>Via official Roblox catalog listing</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Investor Class Tariffs -->
+      <div style="margin-bottom:2.5rem;">
+        <span style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1.25rem;">Investor Class Tariffs</span>
+        <div class="tariff-cards">
+          <div class="tariff-card">
+            <div class="tariff-card-header">
+              <span class="tariff-class">🥉 Bronze</span>
+              <span class="tariff-price" style="color:#C8A87A;">5,000 R</span>
+            </div>
+            <div class="tariff-card-body">
+              <div class="tariff-row"><span>Units</span><span>6–9 available</span></div>
+              <div class="tariff-row"><span>Suite</span><span>Single custom 1<sup>st</sup> Class quarter</span></div>
+              <div class="tariff-row"><span>Access</span><span>By invitation · Enquire via Discord</span></div>
+            </div>
+          </div>
+          <div class="tariff-card">
+            <div class="tariff-card-header">
+              <span class="tariff-class">🥈 Silver</span>
+              <span class="tariff-price" style="color:#C8C8D8;">7,000 R</span>
+            </div>
+            <div class="tariff-card-body">
+              <div class="tariff-row"><span>Units</span><span>4–6 available</span></div>
+              <div class="tariff-row"><span>Suite</span><span>Family custom 1<sup>st</sup> Class suite</span></div>
+              <div class="tariff-row"><span>Access</span><span>By invitation · Enquire via Discord</span></div>
+            </div>
+          </div>
+          <div class="tariff-card">
+            <div class="tariff-card-header">
+              <span class="tariff-class">🥇 Gold</span>
+              <span class="tariff-price" style="color:var(--gold-light);">10,000 R</span>
+            </div>
+            <div class="tariff-card-body">
+              <div class="tariff-row"><span>Units</span><span>2–3 available</span></div>
+              <div class="tariff-row"><span>Suite</span><span>Personal carriage · 3 units</span></div>
+              <div class="tariff-row"><span>Access</span><span>By invitation · Enquire via Discord</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- General Terms -->
+      <div style="max-width:720px;">
+        <span style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:1.25rem;">General Terms</span>
+        <div id="tariffs-list"></div>
       </div>
     </div>
 
@@ -3433,6 +3603,7 @@
     if (id === 'route') buildRoute();
     if (id === 'conditions') buildConditions();
     if (id === 'rights') buildRights();
+    if (id === 'tariffs') buildTariffs();
   }
 
   function closePage() {
@@ -4213,6 +4384,28 @@
         <h3 style="font-family:'Cinzel',serif;font-size:9px;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:0.75rem;">${r.title}</h3>
         <p style="font-size:0.88rem;color:var(--ivory-dark);line-height:1.75;">${r.body}</p>
       </div>`
+    ).join('');
+  }
+
+  // ─── TERMS & TARIFFS ───
+  const TARIFF_TERMS = [
+    ['T.1 — Final Sale', 'All passenger class tickets (1st, 2nd, and 3rd) are a final sale. No refunds, exchanges, credits, or transfers will be issued under any circumstances, including cancellation, illness, or change of circumstance.'],
+    ['T.2 — One-Way Passage', 'All tickets issued by Wilhelm Global Holdings are for one-way passage only. No return ticket exists. The Prussian Star operates on a continuous perpetual circuit with no scheduled terminus.'],
+    ['T.3 — 3rd Class Community Requirement', 'Third Class passage is provided at no monetary cost subject to the passenger holding an active membership in the Wilhelm Global Holdings community on Roblox. Failure to maintain membership may result in reclassification or removal of boarding privileges.'],
+    ['T.4 — Roblox Purchase', 'All paid passage (2nd and 1st Class) must be completed via the official Roblox catalog listings. Wilhelm Global Holdings does not accept payment through any other platform or method. Proof of purchase must be presented to the Admissions Office on Discord to confirm boarding.'],
+    ['T.5 — Investor Class Allocation', 'Investor Class (Bronze, Silver, Gold) is allocated by private negotiation through the Wilhelm Global Holdings Discord server. Investor prices are fixed and non-negotiable. All investor passages are subject to admissions review and may be declined at the discretion of the Administration.'],
+    ['T.6 — Unit Allocation', 'Unit allocations for each investor tier (Bronze: 6–9, Silver: 4–6, Gold: 2–3) are subject to availability and are awarded on a first-come, first-served basis pending review. Wilhelm Global Holdings does not guarantee a specific unit assignment within an investor tier.'],
+    ['T.7 — Children & Servants', 'Children (under 18) are charged at 50% of the base class tariff where applicable. Personal servants travelling with 1st Class passengers are charged at 30% of the base tariff. Investor Class family extension provisions are governed by the individual investor agreement.'],
+    ['T.8 — Price Revision', 'Wilhelm Global Holdings reserves the right to revise tariffs at any time without prior notice. Prices at the time of confirmed purchase are honoured. Tariff changes do not affect previously confirmed passages.'],
+    ['T.9 — Boarding Confirmation', 'A reservation reference number does not constitute a confirmed boarding. Boarding is confirmed only upon submission of proof of Roblox purchase or community membership to the Admissions Office and written confirmation from the Head Administrator.'],
+    ['T.10 — Governing Currency', 'All tariffs are denominated in Roblox (R). No conversion to or from any external currency is offered or implied. The value of Roblox as an external platform currency is not the responsibility of Wilhelm Global Holdings.'],
+  ];
+
+  function buildTariffs() {
+    const c = document.getElementById('tariffs-list');
+    if (!c || c.innerHTML.trim()) return;
+    c.innerHTML = TARIFF_TERMS.map(([title, text]) =>
+      `<div class="cond-item"><span class="cond-num">${title}</span><p class="cond-text">${text}</p></div>`
     ).join('');
   }
 
