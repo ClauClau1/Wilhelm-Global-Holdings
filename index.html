@@ -20,6 +20,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Wilhelm Global Holdings — The Prussian Star</title>
+<link rel="icon" type="image/svg+xml" href="wgh-favicon.svg">
+<link rel="apple-touch-icon" href="wgh-favicon.svg">
 
 <!-- SEO & Link Preview Meta Tags -->
 <meta name="description" content="Board the Prussian Star — Wilhelm Global Holdings' perpetual passenger locomotive. Three classes. Three worlds. One eternal circuit across 81 cities on six continents.">
@@ -3820,17 +3822,17 @@
     if (!ticking) {
       window.requestAnimationFrame(() => {
         const currentY = window.scrollY;
+
+        // ── Nav hide/show ──
         if (currentY <= 10) {
-          // At the very top — always show
           navEl.classList.remove('nav-hidden');
         } else if (currentY > lastScrollY + 4) {
-          // Scrolling down — hide
           navEl.classList.add('nav-hidden');
         } else if (currentY < lastScrollY - 4) {
-          // Scrolling up — show
           navEl.classList.remove('nav-hidden');
         }
         lastScrollY = currentY;
+
         ticking = false;
       });
       ticking = true;
