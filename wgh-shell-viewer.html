@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Wilhelm Global Holdings — The Shell</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,191 +12,177 @@
     --void: #07090d;
     --frost: #e8edf2;
     --champagne: #c9a961;
-    --champagne-dim: rgba(201, 169, 97, 0.35);
-    --steel: #5c7a99;
-    --plate: rgba(11, 14, 19, 0.78);
+    --champagne-dim: rgba(201,169,97,0.35);
+    --plate: rgba(11,14,19,0.82);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   html, body {
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     overflow: hidden;
     background: var(--void);
     font-family: 'Jost', sans-serif;
     color: var(--frost);
   }
 
-  #scene {
-    position: fixed;
-    inset: 0;
-    display: block;
-  }
+  #scene { position: fixed; inset: 0; display: block; touch-action: none; }
 
-  /* ---------- Loading veil ---------- */
+  /* ── Veil ─────────────────────────────────── */
   #veil {
-    position: fixed;
-    inset: 0;
+    position: fixed; inset: 0;
     background: var(--void);
     z-index: 50;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 28px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: clamp(18px, 3vh, 28px);
     transition: opacity 1.4s ease, visibility 1.4s;
+    padding: 2rem;
   }
   #veil.lifted { opacity: 0; visibility: hidden; }
 
   .veil-mark {
     font-family: 'Cinzel', serif;
-    font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+    font-size: clamp(0.75rem, 2.2vw, 1.4rem);
     font-weight: 500;
-    letter-spacing: 0.55em;
-    text-indent: 0.55em;
+    letter-spacing: 0.48em;
+    text-indent: 0.48em;
     color: var(--frost);
-    opacity: 0;
+    text-align: center;
     animation: breathe 2.8s ease-in-out infinite;
   }
   .veil-sub {
-    font-size: 0.62rem;
+    font-size: clamp(0.5rem, 1.4vw, 0.62rem);
     font-weight: 300;
     letter-spacing: 0.5em;
     text-indent: 0.5em;
     text-transform: uppercase;
     color: var(--champagne);
-    opacity: 0;
+    text-align: center;
     animation: breathe 2.8s ease-in-out 0.3s infinite;
   }
-  @keyframes breathe {
-    0%, 100% { opacity: 0.35; }
-    50% { opacity: 1; }
-  }
+  @keyframes breathe { 0%,100%{opacity:.35} 50%{opacity:1} }
+
   .veil-line {
-    width: 120px;
+    width: clamp(80px,15vw,120px);
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--champagne), transparent);
-    position: relative;
-    overflow: hidden;
+    background: linear-gradient(90deg,transparent,var(--champagne),transparent);
+    position: relative; overflow: hidden;
   }
   .veil-line::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent, var(--frost), transparent);
+    content:''; position:absolute; inset:0;
+    background: linear-gradient(90deg,transparent,var(--frost),transparent);
     transform: translateX(-100%);
     animation: sweep 1.8s ease-in-out infinite;
   }
-  @keyframes sweep {
-    to { transform: translateX(100%); }
-  }
+  @keyframes sweep { to { transform:translateX(100%) } }
 
-  /* ---------- Interface plates ---------- */
+  /* ── UI overlay ───────────────────────────── */
   .ui {
-    position: fixed;
-    z-index: 10;
+    position: fixed; z-index: 10;
     opacity: 0;
     transition: opacity 1.6s ease 0.6s;
   }
   body.revealed .ui { opacity: 1; }
 
+  /* Wordmark — top-left with safe area */
   #wordmark {
-    top: 34px;
-    left: 38px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+    top: calc(env(safe-area-inset-top, 0px) + clamp(18px,3vh,34px));
+    left: calc(env(safe-area-inset-left, 0px) + clamp(18px,3vw,38px));
+    display: flex; flex-direction: column;
+    gap: clamp(3px,0.5vh,6px);
     pointer-events: none;
   }
   #wordmark .name {
     font-family: 'Cinzel', serif;
-    font-size: 0.95rem;
+    font-size: clamp(0.6rem, 1.1vw, 0.95rem);
     font-weight: 600;
     letter-spacing: 0.42em;
     color: var(--frost);
   }
   #wordmark .division {
-    font-size: 0.56rem;
+    font-size: clamp(0.45rem, 0.7vw, 0.56rem);
     font-weight: 300;
-    letter-spacing: 0.46em;
+    letter-spacing: 0.42em;
     text-transform: uppercase;
     color: var(--champagne);
   }
 
-  /* Builder's plate — engraved specification card */
+  /* Builder's plate — bottom-left */
   #builders-plate {
-    bottom: 38px;
-    left: 38px;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + clamp(16px,3vh,38px));
+    left: calc(env(safe-area-inset-left, 0px) + clamp(16px,3vw,38px));
     background: var(--plate);
-    border: 1px solid rgba(201, 169, 97, 0.22);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 20px 26px 18px;
-    min-width: 230px;
+    border: 1px solid rgba(201,169,97,0.22);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    padding: clamp(12px,2vh,20px) clamp(14px,2vw,26px) clamp(10px,1.8vh,18px);
+    min-width: clamp(160px,22vw,230px);
+    max-width: calc(50vw - env(safe-area-inset-left,0px) - 20px);
     pointer-events: none;
   }
   #builders-plate::before {
-    content: '';
-    position: absolute;
-    inset: 5px;
-    border: 1px solid rgba(201, 169, 97, 0.12);
-    pointer-events: none;
+    content:''; position:absolute; inset:5px;
+    border:1px solid rgba(201,169,97,0.1);
+    pointer-events:none;
   }
   #builders-plate .plate-title {
     font-family: 'Cinzel', serif;
-    font-size: 0.74rem;
+    font-size: clamp(0.52rem, 0.9vw, 0.74rem);
     font-weight: 500;
     letter-spacing: 0.34em;
     color: var(--champagne);
-    margin-bottom: 13px;
+    margin-bottom: clamp(8px,1.2vh,13px);
   }
   #builders-plate .row {
     display: flex;
     justify-content: space-between;
-    gap: 30px;
-    font-size: 0.6rem;
+    gap: clamp(12px,2vw,30px);
+    font-size: clamp(0.45rem, 0.7vw, 0.6rem);
     font-weight: 300;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    padding: 4px 0;
-    border-top: 1px solid rgba(232, 237, 242, 0.07);
+    padding: clamp(2px,0.4vh,4px) 0;
+    border-top: 1px solid rgba(232,237,242,0.07);
   }
-  #builders-plate .row span:first-child { color: rgba(232, 237, 242, 0.45); }
-  #builders-plate .row span:last-child { color: var(--frost); }
+  #builders-plate .row span:first-child { color: rgba(232,237,242,0.45); }
+  #builders-plate .row span:last-child  { color: var(--frost); }
 
-  /* Controls hint */
+  /* Controls hint — bottom-right */
   #hint {
-    bottom: 38px;
-    right: 38px;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + clamp(16px,3vh,38px));
+    right: calc(env(safe-area-inset-right, 0px) + clamp(16px,3vw,38px));
     text-align: right;
-    font-size: 0.58rem;
+    font-size: clamp(0.42rem, 0.7vw, 0.58rem);
     font-weight: 300;
-    letter-spacing: 0.32em;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
-    color: rgba(232, 237, 242, 0.38);
+    color: rgba(232,237,242,0.38);
     line-height: 2.1;
     pointer-events: none;
   }
-  #hint em {
-    font-style: normal;
-    color: var(--champagne-dim);
-  }
+  #hint em { font-style:normal; color:var(--champagne-dim); }
 
-  /* Frost vignette */
+  /* Vignette */
   #vignette {
-    position: fixed;
-    inset: 0;
-    z-index: 5;
+    position: fixed; inset: 0; z-index: 5;
     pointer-events: none;
     background:
-      radial-gradient(ellipse at center, transparent 52%, rgba(7, 9, 13, 0.55) 100%),
-      linear-gradient(180deg, rgba(7, 9, 13, 0.35) 0%, transparent 18%, transparent 82%, rgba(7, 9, 13, 0.5) 100%);
+      radial-gradient(ellipse at center, transparent 52%, rgba(7,9,13,.55) 100%),
+      linear-gradient(180deg, rgba(7,9,13,.35) 0%, transparent 18%, transparent 82%, rgba(7,9,13,.5) 100%);
   }
 
-  @media (max-width: 640px) {
-    #wordmark { top: 24px; left: 22px; }
-    #builders-plate { bottom: 22px; left: 22px; min-width: 0; padding: 15px 18px 13px; }
+  /* ── Mobile overrides ─────────────────────── */
+  @media (max-width: 480px) {
+    /* Stack plate compactly; hide hint */
+    #builders-plate { min-width: 0; max-width: calc(60vw - 16px); }
+    #hint { display: none; }
+  }
+
+  /* Landscape phone: shrink plate so it doesn't cover the model */
+  @media (max-height: 480px) {
+    #builders-plate .row { display: none; }
+    #builders-plate .plate-title { margin-bottom: 0; }
     #hint { display: none; }
   }
 
@@ -232,11 +218,10 @@
 </div>
 
 <div class="ui" id="hint">
-  <em>Drag</em> to orbit<br>
+  <em id="hint-orbit">Drag</em> to orbit<br>
   <em>Scroll</em> to approach<br>
-  <em>Right-drag</em> to glide
+  <em id="hint-pan">Right-drag</em> to glide
 </div>
-
 
 <script type="importmap">
 {
@@ -250,12 +235,21 @@
 <script type="module">
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { GLTFLoader }    from 'three/addons/loaders/GLTFLoader.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+/* ── Touch hint adaptation ─────────────────── */
+const isTouch = window.matchMedia('(pointer:coarse)').matches;
+if (isTouch) {
+  document.getElementById('hint-orbit').nextSibling.textContent = ' finger to orbit';
+  document.getElementById('hint-orbit').textContent = 'One';
+  document.getElementById('hint-pan').textContent = 'Two-finger';
+  document.getElementById('hint-pan').nextSibling.textContent = ' to glide';
+}
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-/* ---------- Renderer ---------- */
+/* ── Renderer ──────────────────────────────── */
 const canvas = document.getElementById('scene');
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -266,7 +260,7 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
-/* ---------- Scene & atmosphere ---------- */
+/* ── Scene ─────────────────────────────────── */
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x07090d);
 scene.fog = new THREE.FogExp2(0x0a0e15, 0.016);
@@ -274,44 +268,66 @@ scene.fog = new THREE.FogExp2(0x0a0e15, 0.016);
 const pmrem = new THREE.PMREMGenerator(renderer);
 scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
 
-/* ---------- Camera ---------- */
-const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 2000);
+/* ── Camera & controls ─────────────────────── */
+const camera = new THREE.PerspectiveCamera(42, window.innerWidth / window.innerHeight, 0.1, 2000);
 
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
-controls.dampingFactor = 0.05;
-controls.autoRotate = !reducedMotion;
-controls.autoRotateSpeed = 0.55;
-controls.minPolarAngle = 0.15;
-controls.maxPolarAngle = Math.PI / 2 + 0.08;
+controls.enableDamping    = true;
+controls.dampingFactor    = 0.05;
+controls.autoRotate       = !reducedMotion;
+controls.autoRotateSpeed  = 0.55;
+controls.minPolarAngle    = 0.1;
+controls.maxPolarAngle    = Math.PI / 2 + 0.1;
 
-/* ---------- Lighting: showroom unveiling ---------- */
-// Champagne key light — the warm reveal
+/* ── Lights ────────────────────────────────── */
 const key = new THREE.DirectionalLight(0xe8c585, 2.6);
 key.position.set(60, 80, 40);
 key.castShadow = true;
 key.shadow.mapSize.set(2048, 2048);
 scene.add(key);
 
-// Arctic fill — the frozen world outside
 const fill = new THREE.DirectionalLight(0x7a96b8, 0.9);
 fill.position.set(-70, 30, -50);
 scene.add(fill);
 
-// Cold rim from behind, separates hull from the void
 const rim = new THREE.DirectionalLight(0xaecde8, 1.4);
 rim.position.set(0, 45, -90);
 scene.add(rim);
 
-// Low ambient so the darks stay rich, never crushed
 scene.add(new THREE.AmbientLight(0x2a3442, 0.55));
 
-// A faint warm lamp under the hull, like platform lighting
 const lamp = new THREE.PointLight(0xc9a961, 0.6, 120, 1.8);
 scene.add(lamp);
 
-/* ---------- Load GLB from separate file ---------- */
-const loader = new GLTFLoader();
+/* ── Camera framing (aspect-ratio-aware) ────── */
+// modelSize is set once the model loads; resize re-uses it.
+let modelSize = null;
+
+function frameCamera() {
+  if (!modelSize) return;
+  const { x: w, y: h, z: d } = modelSize;
+  const aspect  = window.innerWidth / window.innerHeight;
+  const vFovRad = (camera.fov * Math.PI) / 180;
+  const hFovRad = 2 * Math.atan(Math.tan(vFovRad / 2) * aspect);
+
+  // Distance needed to fit width horizontally, height vertically
+  const distW = (w * 0.55) / (2 * Math.tan(hFovRad / 2));  // 0.55 = let edges breathe
+  const distH = (h * 1.20) / (2 * Math.tan(vFovRad / 2));
+  const dist  = Math.max(distW, distH, d * 2.0);
+
+  camera.position.set(dist * 0.58, h * 0.18, dist * 0.48);
+  camera.near = Math.min(w, h, d) / 200;
+  camera.far  = dist * 10;
+  camera.updateProjectionMatrix();
+
+  controls.target.set(0, 0, 0);
+  controls.minDistance = dist * 0.1;
+  controls.maxDistance = dist * 2.2;
+  controls.update();
+}
+
+/* ── Load model ────────────────────────────── */
+const loader  = new GLTFLoader();
 const veilSub = document.querySelector('.veil-sub');
 
 loader.load(
@@ -319,66 +335,46 @@ loader.load(
   (gltf) => {
     const model = gltf.scene;
 
-    // Strip all color — uniform raw steel across every material
     const steelColor = new THREE.Color(0x8a9aaa);
     model.traverse((node) => {
       if (!node.isMesh) return;
-      node.castShadow = true;
-      node.receiveShadow = true;
+      node.castShadow = node.receiveShadow = true;
       const m = node.material;
       if (!m) return;
-      m.color = steelColor.clone();
-      m.metalness = 0.90;
-      m.roughness = 0.28;
+      m.color           = steelColor.clone();
+      m.metalness       = 0.90;
+      m.roughness       = 0.28;
       m.envMapIntensity = 1.6;
-      m.needsUpdate = true;
+      m.needsUpdate     = true;
     });
 
-    // Rotate so the shell faces up
-    model.rotation.x = Math.PI / 2;
+    model.rotation.set(0, 0, 0);
 
-    // Center and frame
-    const box = new THREE.Box3().setFromObject(model);
+    const box    = new THREE.Box3().setFromObject(model);
     const center = box.getCenter(new THREE.Vector3());
-    const size = box.getSize(new THREE.Vector3());
+    const size   = box.getSize(new THREE.Vector3());
     model.position.sub(center);
     scene.add(model);
 
+    modelSize = size;
+    frameCamera();
+
+    // Ground
     const maxDim = Math.max(size.x, size.y, size.z);
-    const dist = maxDim / (2 * Math.tan((camera.fov * Math.PI) / 360));
-
-    camera.position.set(dist * 0.62, maxDim * 0.16, dist * 0.5);
-    camera.near = maxDim / 1000;
-    camera.far = maxDim * 12;
-    camera.updateProjectionMatrix();
-
-    controls.target.set(0, 0, 0);
-    controls.minDistance = maxDim * 0.12;
-    controls.maxDistance = dist * 1.6;
-    controls.update();
-
-    // Platform lamp beneath the hull
-    lamp.position.set(0, -size.y * 0.5 - 2, 0);
-    lamp.distance = maxDim * 0.6;
-
-    // Ground plane — dark ice sheet catching the shadow
     const ground = new THREE.Mesh(
       new THREE.CircleGeometry(maxDim * 1.4, 64),
-      new THREE.MeshStandardMaterial({
-        color: 0x0b0f15,
-        metalness: 0.35,
-        roughness: 0.65,
-      })
+      new THREE.MeshStandardMaterial({ color:0x0b0f15, metalness:0.35, roughness:0.65 })
     );
     ground.rotation.x = -Math.PI / 2;
     ground.position.y = -size.y * 0.5 - 0.05;
     ground.receiveShadow = true;
     scene.add(ground);
 
-    // Adjust fog to model scale
-    scene.fog = new THREE.FogExp2(0x0a0e15, 1.6 / maxDim);
+    lamp.position.set(0, -size.y * 0.5 - 2, 0);
+    lamp.distance = maxDim * 0.6;
 
-    // Lift the veil
+    scene.fog = new THREE.FogExp2(0x0a0e15, 1.4 / maxDim);
+
     setTimeout(() => {
       document.getElementById('veil').classList.add('lifted');
       document.body.classList.add('revealed');
@@ -386,7 +382,7 @@ loader.load(
   },
   (progress) => {
     if (progress.total) {
-      const pct = Math.round((progress.loaded / progress.total) * 100);
+      const pct = Math.round(progress.loaded / progress.total * 100);
       veilSub.textContent = `Loading hull — ${pct}%`;
     }
   },
@@ -396,7 +392,7 @@ loader.load(
   }
 );
 
-/* ---------- Loop ---------- */
+/* ── Loop ──────────────────────────────────── */
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
@@ -404,11 +400,11 @@ function animate() {
 }
 animate();
 
-/* ---------- Resize ---------- */
+/* ── Resize — reframe & resize renderer ────── */
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
+  frameCamera();   // repositions camera for new aspect ratio
 });
 </script>
 </body>
