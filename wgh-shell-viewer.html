@@ -4,6 +4,34 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Wilhelm Global Holdings — The Shell</title>
+<link rel="icon" type="image/svg+xml" href="wgh-favicon.svg">
+<link rel="apple-touch-icon" href="wgh-favicon.svg">
+
+<!-- SEO & Link Preview Meta Tags -->
+<meta name="description" content="The Shell — an interactive 3D inspection of the Prussian Star's outer hull. Eighty-two sections of hardened steel plate, engineered by Wilhelm Global Holdings.">
+<meta name="author" content="Wilhelm Global Holdings">
+<meta name="theme-color" content="#07090d">
+
+<!-- Open Graph (Facebook, Discord, LinkedIn, WhatsApp, Telegram) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Shell — Wilhelm Global Holdings">
+<meta property="og:description" content="An interactive 3D inspection of the Prussian Star's outer hull. Eighty-two sections of hardened steel, each welded by hand.">
+<meta property="og:url" content="https://clauclau1.github.io/Wilhelm-Global-Holdings/wgh-shell-viewer.html">
+<meta property="og:site_name" content="Wilhelm Global Holdings">
+<meta property="og:image" content="https://clauclau1.github.io/Wilhelm-Global-Holdings/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Wilhelm Global Holdings — The Prussian Star">
+<meta property="og:locale" content="en_GB">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Shell — Wilhelm Global Holdings">
+<meta name="twitter:description" content="An interactive 3D inspection of the Prussian Star's outer hull.">
+<meta name="twitter:image" content="https://clauclau1.github.io/Wilhelm-Global-Holdings/og-image.jpg">
+
+<!-- Discord specific (uses Open Graph) -->
+<meta property="og:image:secure_url" content="https://clauclau1.github.io/Wilhelm-Global-Holdings/og-image.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Jost:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
@@ -49,6 +77,8 @@
     text-indent: 0.48em;
     color: var(--frost);
     text-align: center;
+    max-width: 100%;
+    line-height: 1.7;
     animation: breathe 2.8s ease-in-out infinite;
   }
   .veil-sub {
@@ -59,6 +89,7 @@
     text-transform: uppercase;
     color: var(--champagne);
     text-align: center;
+    max-width: 100%;
     animation: breathe 2.8s ease-in-out 0.3s infinite;
   }
   @keyframes breathe { 0%,100%{opacity:.35} 50%{opacity:1} }
@@ -177,6 +208,20 @@
     /* Stack plate compactly; hide hint */
     #builders-plate { min-width: 0; max-width: calc(60vw - 16px); }
     #hint { display: none; }
+
+    /* Tame the veil wordmark so it can't overflow the viewport */
+    .veil-mark {
+      font-size: clamp(0.85rem, 5.5vw, 1.15rem);
+      letter-spacing: 0.16em;
+      text-indent: 0.16em;
+      padding: 0 0.5rem;
+    }
+    .veil-sub {
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-indent: 0.22em;
+    }
+    .veil-line { width: 80px; }
   }
 
   /* Landscape phone: shrink plate so it doesn't cover the model */
@@ -382,7 +427,7 @@ loader.load(
   },
   (progress) => {
     if (progress.total) {
-      const pct = Math.round(progress.loaded / progress.total * 100);
+      const pct = Math.min(100, Math.round(progress.loaded / progress.total * 100));
       veilSub.textContent = `Loading hull — ${pct}%`;
     }
   },
