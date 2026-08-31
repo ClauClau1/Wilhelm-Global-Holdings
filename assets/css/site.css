@@ -2532,3 +2532,70 @@
       scroll-behavior: auto !important;
     }
   }
+
+  /* ═══════════════════════════════════════════════════════════
+     404 — served by GitHub Pages for any unknown path
+     ═══════════════════════════════════════════════════════════ */
+  .subpage--404 { text-align: center; max-width: 760px; }
+  .subpage--404 .subpage-title { margin-bottom: 1.75rem; }
+
+  .err-lede {
+    color: var(--ivory-dark);
+    line-height: 1.95;
+    max-width: 56ch;
+    margin: 0 auto 3rem;
+  }
+
+  .err-code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(4.5rem, 16vw, 9rem);
+    font-weight: 300;
+    line-height: 1;
+    color: rgba(201, 168, 76, 0.22);
+    margin-bottom: 2.5rem;
+    /* Rules either side read as a length of track. */
+    position: relative;
+  }
+  .err-code::before,
+  .err-code::after {
+    content: '';
+    flex: 1;
+    height: 0.5px;
+    background: var(--border);
+    max-width: 120px;
+  }
+  .err-code-mark {
+    font-size: 0.22em;
+    color: var(--gold);
+    opacity: 0.75;
+  }
+
+  .err-hint {
+    font-family: 'Cinzel', serif;
+    font-size: 8px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+  }
+  .err-hint code {
+    font-family: 'SF Mono', Menlo, monospace;
+    letter-spacing: 0;
+    text-transform: none;
+    font-size: 0.8rem;
+    color: var(--gold-light);
+    background: rgba(201, 168, 76, 0.08);
+    padding: 0.15rem 0.5rem;
+    overflow-wrap: anywhere;
+  }
+
+  .err-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+  }

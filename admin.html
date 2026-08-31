@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Gallery Admin &mdash; Wilhelm Global Holdings</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#C9A84C">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+<!-- ── PASSPHRASE GATE ── -->
+<div id="gate" class="gate">
+  <form id="gateForm" class="gate-card">
+    <span class="subpage-label">Wilhelm Global Holdings</span>
+    <h1 class="gate-title">Gallery <em>Admin</em></h1>
+    <p class="gate-note">Berlin Terminus archive &mdash; staff only.</p>
+    <input id="gatePass" type="password" placeholder="Passphrase" autocomplete="current-password">
+    <button type="submit" class="btn-primary">Enter</button>
+    <p id="gateErr" class="gate-err"></p>
+  </form>
+</div>
+
+<!-- ── PANEL ── -->
+<div id="app" class="hidden">
+
+  <header class="admin-bar">
+    <div class="admin-bar-left">
+      <a href="gallery.html" class="admin-brand">Wilhelm Global Holdings</a>
+      <span class="admin-sub">Gallery Admin</span>
+    </div>
+    <div class="admin-bar-right">
+      <span id="pendingCount" class="admin-pending"></span>
+      <span id="progress" class="admin-progress"></span>
+      <button id="tokenPill" class="pill pill--no">No GitHub token</button>
+      <button id="tokenBtn" class="mini">Token</button>
+      <button id="publishBtn" class="btn-primary btn-publish" disabled>Publish</button>
+      <button id="lockBtn" class="mini">Lock</button>
+    </div>
+  </header>
+
+  <main class="admin-main">
+
+    <div class="admin-cats">
+      <div id="catTabs" class="cat-tabs"></div>
+      <div class="cat-buttons">
+        <button id="addCatBtn" class="mini">+ Category</button>
+        <button id="delCatBtn" class="mini mini--danger">Delete category</button>
+      </div>
+    </div>
+
+    <section class="admin-panel">
+      <label class="admin-label" for="catName">Category name</label>
+      <input id="catName" class="admin-input" placeholder="Category name">
+      <label class="admin-label" for="catIntro">Intro paragraph</label>
+      <textarea id="catIntro" class="admin-input" rows="2"
+                placeholder="Shown above the grid for this category"></textarea>
+    </section>
+
+    <div id="dropzone" class="dropzone">
+      <strong>Drag photographs here</strong>
+      <span>or click to choose files &middot; they are resized to 1600px
+            (plus a 600px thumbnail) before upload</span>
+      <input id="fileInput" type="file" accept="image/*" multiple hidden>
+    </div>
+
+    <div id="photoList" class="photo-list"></div>
+
+    <p class="admin-footnote">
+      Photographs upload straight to
+      <code>ClauClau1/Wilhelm-Global-Holdings</code> on <code>main</code>.
+      Your token stays in this browser and is only ever sent to
+      <code>api.github.com</code>.
+    </p>
+  </main>
+</div>
+
+<!-- ── TOKEN DIALOG ── -->
+<dialog id="tokenDialog" class="token-dialog">
+  <h2 class="token-title">GitHub token</h2>
+  <p class="token-note">
+    Create a <strong>fine-grained personal access token</strong> at
+    <em>github.com &rarr; Settings &rarr; Developer settings &rarr;
+    Personal access tokens &rarr; Fine-grained tokens</em>.<br>
+    Limit it to the <code>Wilhelm-Global-Holdings</code> repository only, and give it
+    a single permission: <strong>Contents: Read and write</strong>.
+  </p>
+  <input id="tokenInput" type="password" class="admin-input"
+         placeholder="github_pat_..." autocomplete="off">
+  <p class="token-warn">
+    Stored in this browser's localStorage. Anyone with access to this
+    computer's browser profile can read it &mdash; use a short expiry, and
+    press Clear when you are done on a shared machine.
+  </p>
+  <div class="token-actions">
+    <button id="tokenClear" class="mini mini--danger">Clear</button>
+    <form method="dialog"><button class="mini">Cancel</button></form>
+    <button id="tokenSave" class="btn-primary">Save</button>
+  </div>
+</dialog>
+
+<!-- ── PROMPT / CONFIRM DIALOG ── -->
+<!-- Replaces window.prompt/confirm, which some browsers and embedded
+     webviews refuse to show. -->
+<dialog id="askDialog" class="token-dialog">
+  <h2 class="token-title" id="askTitle">&nbsp;</h2>
+  <p class="token-note" id="askBody"></p>
+  <input id="askInput" class="admin-input" autocomplete="off">
+  <div class="token-actions">
+    <button id="askCancel" class="mini">Cancel</button>
+    <button id="askOk" class="btn-primary">OK</button>
+  </div>
+</dialog>
+
+<div id="toast" class="toast"></div>
+
+<script src="assets/gallery/photos.js" defer></script>
+<script src="assets/js/admin.js" defer></script>
+</body>
+</html>
