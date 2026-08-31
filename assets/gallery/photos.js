@@ -67,7 +67,16 @@ const GALLERY = [
     "id": "dining",
     "name": "Dining & Lounges",
     "intro": "Kitchens, dining cars and lounge spaces across all three classes.",
-    "photos": []
+    "photos": [
+      {
+        "src": "dining/opulenz-am-rhein-1st-class-dining.jpg",
+        "thumb": "dining/opulenz-am-rhein-1st-class-dining-t.jpg",
+        "w": 1600,
+        "h": 900,
+        "title": "Opulenz am Rhein - 1st Class Dining",
+        "caption": ""
+      }
+    ]
   },
   {
     "id": "route",
