@@ -58,15 +58,16 @@ function selectCategory(id, pushHash) {
     panel.innerHTML = intro + `
       <div class="gallery-empty">
         <strong>No photographs filed yet</strong>
-        <p>Drop images into <code>assets/gallery/${esc(cat.id)}/</code>, then add
-        them to the <em>${esc(cat.name)}</em> list in
-        <code>assets/gallery/photos.js</code>.</p>
+        <p>The archive for <em>${esc(cat.name)}</em> has not yet been
+        catalogued. Please enquire at the Berlin Terminus.</p>
       </div>`;
   } else {
+    // Grid uses the small thumbnail; the lightbox loads the full image.
     panel.innerHTML = intro + `<div class="gallery-grid">` + cat.photos.map((p, i) => `
       <figure class="gallery-item" role="button" tabindex="0"
               data-index="${i}" aria-label="${esc(p.title || 'Photograph ' + (i + 1))}">
-        <img src="${esc(GAL_BASE + p.src)}"
+        <img src="${esc(GAL_BASE + (p.thumb || p.src))}"
+             ${p.w && p.h ? `width="${p.w}" height="${p.h}"` : ''}
              alt="${esc(p.alt || p.title || cat.name + ' photograph')}"
              loading="lazy" decoding="async">
         ${(p.title || p.caption) ? `<figcaption>${esc(p.title || '')}
