@@ -75,6 +75,22 @@ const GALLERY = [
         "h": 900,
         "title": "Opulenz am Rhein - 1st Class Dining",
         "caption": ""
+      },
+      {
+        "src": "dining/food-demo-1-opulenz-am-rhein.jpg",
+        "thumb": "dining/food-demo-1-opulenz-am-rhein-t.jpg",
+        "w": 1600,
+        "h": 900,
+        "title": "Food Demo 1 - Opulenz am Rhein",
+        "caption": ""
+      },
+      {
+        "src": "dining/fooddemo-2-opulenz-am-rhein.jpg",
+        "thumb": "dining/fooddemo-2-opulenz-am-rhein-t.jpg",
+        "w": 1600,
+        "h": 900,
+        "title": "FoodDemo 2 - Opulenz am Rhein",
+        "caption": ""
       }
     ]
   },
