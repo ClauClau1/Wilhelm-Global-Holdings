@@ -91,6 +91,22 @@ const GALLERY = [
         "h": 900,
         "title": "FoodDemo 2 - Opulenz am Rhein",
         "caption": ""
+      },
+      {
+        "src": "dining/egypt-party-setting-opulenz-dining.jpg",
+        "thumb": "dining/egypt-party-setting-opulenz-dining-t.jpg",
+        "w": 1600,
+        "h": 900,
+        "title": "Egypt Party Setting - Opulenz Dining",
+        "caption": ""
+      },
+      {
+        "src": "dining/tribunal-setting-opulenz-dining.jpg",
+        "thumb": "dining/tribunal-setting-opulenz-dining-t.jpg",
+        "w": 1600,
+        "h": 900,
+        "title": "Tribunal Setting - Opulenz Dining",
+        "caption": ""
       }
     ]
   },
@@ -98,7 +114,16 @@ const GALLERY = [
     "id": "route",
     "name": "Stations & Route",
     "intro": "Waypoints along the eternal circuit — 81 mainline cities across six continents.",
-    "photos": []
+    "photos": [
+      {
+        "src": "route/the-spiral-wip-terrain.jpg",
+        "thumb": "route/the-spiral-wip-terrain-t.jpg",
+        "w": 1600,
+        "h": 900,
+        "title": "The Spiral - WIP Terrain",
+        "caption": ""
+      }
+    ]
   },
   {
     "id": "crew",
